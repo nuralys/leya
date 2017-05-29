@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+	<html>
 	<head>
-		<title>Lea *</title>
+		<title>Lea</title>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 		<meta name="keyword" content="">
 		<meta name="description" content="">
@@ -82,7 +82,7 @@
 												<a href="">О КОМПАНИИ</a>
 											</li>
 											<li>
-												<a href="/<?=$lang?>reviews">Отзывы</a>
+												<a href="">Отзывы</a>
 											</li>
 											<li>
 												<a href="">Презентация и видео</a>
@@ -90,11 +90,11 @@
 										</ul>
 									</div>
 								</li>
-								<li><a href="/<?=$lang?>projects">проекты  </a></li>
+								<li><a href="">проекты  </a></li>
 								<li><a href="">ход строительства </a></li>
-								<li><a href="/<?=$lang?>news">новости и события</a></li>
-								<li><a href="/<?=$lang?>vacancies">вакансии</a></li>
-								<li><a href="/<?=$lang?>contacts">        КОНТАКТЫ</a></li>
+								<li><a href="">новости и события</a></li>
+								<li><a href="">вакансии</a></li>
+								<li><a href="">        КОНТАКТЫ</a></li>
 							</ul>
 						</div>
 					</div>
@@ -102,13 +102,8 @@
 			</div>		
 		</header> 
 		<div class="container">
-			<div class="cr">
-				<div class="content">
-					<div class="content-top">	
-						<?php echo $this->fetch('content'); ?>
-					</div>
-					
-				</div>		
+			<div class="big-cr-container">
+				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>
 	</div>
@@ -118,15 +113,6 @@
 		<script src="/js/jquery.js" type="text/javascript"></script>
 		<script src="/js/jquery.fullPage.min.js"></script>
 
-		<script>
-			$(document).ready(function() {
-				$('#fullpage').fullpage({
-					anchors:['Main','Programm','Pre','Review','Contact'],
-					menu:"#rightMenu",
-					navigation: true,			    	
-				});
-			});
-		</script>
 		<script src="/js/jquery.fancybox.pack.js" type="text/javascript"></script>
 		<script src="/js/app.js" type="text/javascript"></script>
 

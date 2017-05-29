@@ -1,13 +1,16 @@
-<div class="cr ov">
-	<div class="ov">
-		<div class="h-heading">
-					<h1><?=$post['News']['title'] ?></h1>
-			</div>			
-		<div class="news-content">
-		<?php if(!empty($post['News']['img'])): ?>
-			<img src="/img/news/<?=$post['News']['img']?>" width="450x";>
+<ul class="breadcrumbs">
+	<li><a href="/<?=$lang?>"><?=__('Главная')?></a></li>
+	<li><a href="/<?=$lang?>news"><?=__('Новости')?></a></li>
+	<li><?=$post['News']['title'] ?></li>
+</ul>
+<div class="title">
+	<?=$post['News']['title'] ?>
+</div>	
+<div class="about-content">
+	<div class="about-img">
+	<?php if(!empty($post['News']['img'])): ?>
+		<img src="/img/news/<?=$post['News']['img']?>" width="450x";>
 		<?php endif ?>
-			<?=$post['News']['body'] ?>
-		</div>				
 	</div>
+	<?=$post['News']['body'] ?>
 </div>
