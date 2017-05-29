@@ -199,9 +199,10 @@ body {
   text-decoration: none;
 }
 .sub-menu-container {
-  position: absolute;
-  top: 37px;
-  display: none;
+    position: absolute;
+    top: 37px;
+    display: none;
+    z-index: 995888;
 }
 .menu li:hover .sub-menu-container {
   display: block;
