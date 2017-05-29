@@ -1,102 +1,45 @@
 <div class="content-title">
-	новости и события
+	<?=__('Новости и события')?>
 </div>
+<?php foreach($new_array as $key => $value): ?>
 <ul class="news-list">
 	<li>
 		<div class="year">
-			2017
+			<?=$key ?>
 		</div>
 	</li>
+	<?php foreach($value as $item): ?>
 	<li>
 		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
+			<a href="/<?=$lang?>news/view/<?=$item['News']['id']?>" class="news-item__title">
+				<?=$item['News']['title']?>
+				 <div class="date-news"><?php echo $this->Time->format($item['News']['date'], '%d', 'invalid'); ?><br>
+				 <?php switch ($this->Time->format($item['News']['date'], '%m', 'invalid')) {
+				 	case '01': echo 'янв'; break;
+				 	case '02': echo 'фев'; break;
+				 	case '03': echo 'мар'; break;
+				 	case '04': echo 'апр'; break;
+				 	case '05': echo 'май'; break;
+				 	case '06': echo 'июн'; break;
+				 	case '07': echo 'июл'; break;
+				 	case '08': echo 'авг'; break;
+				 	case '09': echo 'сен'; break;
+				 	case '10': echo 'окт'; break;
+				 	case '11': echo 'ноя'; break;
+				 	case '12': echo 'дек'; break;
+				 	default:
+				 		# code...
+				 		break;
+				 } ?>
+				</div>
 			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
+			<p><?= $this->Text->truncate(strip_tags($item['News']['body']), 222, array('ellipsis' => '...', 'exact' => true)) ?></p>
 		</div>
 	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
+<?php endforeach ?>
 
 	
 </ul>
-<ul class="news-list">
-	<li>
-		<div class="year">
-			2016
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	<li>
-		<div class="news-item">
-			<a href="" class="news-item__title">
-				Уязвимость в неправильной
-настройке Redis    <div class="date-news">1<br>
-апр</div>
-			</a>
-			<p>Внимание! При неправильной настройке Redis, вы подвергаете риску данные на сервере. Если вы используете Redis и сомневаетесь в правильности конфигурации, обратитесь в службу технической поддержки! Мы бесплатно вам поможем.</p>
-		</div>
-	</li>
-	
-	
-</ul>
 
+
+<?php endforeach ?>

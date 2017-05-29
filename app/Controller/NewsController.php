@@ -19,13 +19,34 @@ class NewsController extends AppController{
 			$new = array_flip($years);
 			//date('Y',$item['News']['date']);
 		}
-		$new['2017'] = "News";
+		$new_array=array();
+		foreach ($new as $item => $value) {
+			// $new_array[$item] = '1';
+			// debug($item);
+			// foreach ($data as $key => $value) {
+			// 	# code...
+			// }
+
+			foreach($data as $news){
+			// debug(strftime("%Y", strtotime($news['News']['date'])));
+				if(strftime("%Y", strtotime($news['News']['date'])) == $item){
+					$new_array[$item][] = $news;
+				}
+				
+			}
+			
+		}
+
+		
+		// debug($new_array);
+		// $new['2017'] = "News";
 		// for($i = 1; $i>=count($new); $i++){
 		// 	$new[$i] = "asd";
 		// }
-		debug($new);die;
+		// debug($new);
+		// die;
 		$title_for_layout = __('Новости');
-		$this->set(compact('title_for_layout', 'data'));
+		$this->set(compact('title_for_layout', 'data', 'new_array'));
 	}
 		
 
