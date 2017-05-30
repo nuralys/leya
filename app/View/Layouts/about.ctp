@@ -52,7 +52,7 @@
 				<div class="header-bottom-height"></div>
 				<div class="header-bottom">
 					<div class="cr">
-						<a href="" class="header-logo">
+						<a href="/<?=$lang?>" class="header-logo">
 							<img src="/img/logo.png" alt="">
 						</a>
 						<div class="searach-container">

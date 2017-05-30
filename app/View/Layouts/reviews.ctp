@@ -23,13 +23,13 @@
 				<div class="cr">
 					<ul class="header-item header-item--lang">
 						<li>
-							<a href=""><img src="img/kz.jpg" alt=""></a>
+							<a href=""><img src="/img/kz.jpg" alt=""></a>
 						</li>
 						<li>
-							<a href=""><img src="img/ru.jpg" alt=""></a>
+							<a href=""><img src="/img/ru.jpg" alt=""></a>
 						</li>
 						<li>
-							<a href=""><img src="img/eng.jpg" alt=""></a>
+							<a href=""><img src="/img/eng.jpg" alt=""></a>
 						</li>
 					</ul>
 					<ul class="header-item soc-seti">
@@ -53,11 +53,11 @@
 				<div class="header-bottom">
 					<div class="cr">
 						<a href="/<?=$lang?>" class="header-logo">
-							<img src="img/logo.png" alt="">
+							<img src="/img/logo.png" alt="">
 						</a>
 						<div class="searach-container">
 							<div class="searach-container__icon">
-								<img src="img/search.png" alt="">
+								<img src="/img/search.png" alt="">
 							</div>
 							<div class="searach-container__input">
 								<input type="text" placeholder="Поиск по сайту">

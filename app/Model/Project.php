@@ -69,7 +69,7 @@ class Project extends AppModel {
 		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
 			return false;
 		}
-		$this->resizeImg($path, $path_th, 198, 142, $ext);
+		$this->resizeImg($path, $path_th, 377, 234, $ext);
 		$this->data[$this->alias]['img'] = $fileName;
 		return true;
 	}

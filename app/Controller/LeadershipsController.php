@@ -5,7 +5,11 @@ class LeadershipsController extends AppController{
 	public function index(){
 		$this->Leadership->locale = Configure::read('Config.language');
 		$this->Leadership->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
-
+		$data = $this->Leadership->find('all');
+		// debug($data);
+		// die;
+		$title_for_layout = __("Руководство");
+		$this->set(compact('data', 'title_for_layout'));
 	}
 
 	public function admin_index(){
@@ -13,22 +17,22 @@ class LeadershipsController extends AppController{
 		$this->Leadership->bindTranslation(array('title' => 'titleTranslation'));
 		$data = $this->Leadership->find('all');
 		
-		if($this->request->is('post')){
-			$anons = $this->request->data['Leadership']['anons'];
-			$leader_id = $this->request->data['Leadership']['leader_id'];
-			// debug($leader_id);
-			// die;
+		// if($this->request->is('post')){
+		// 	$anons = $this->request->data['Leadership']['anons'];
+		// 	$leader_id = $this->request->data['Leadership']['leader_id'];
+		// 	// debug($leader_id);
+		// 	// die;
 
-			// debug($leader_id);
-			$setAnons = $this->_anons($leader_id, $anons);
-			if($setAnons){
-				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
-				// debug($data);
-				return $this->redirect($this->referer());
-			}else{
-				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
-			}
-		}
+		// 	// debug($leader_id);
+		// 	$setAnons = $this->_anons($leader_id, $anons);
+		// 	if($setAnons){
+		// 		$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+		// 		// debug($data);
+		// 		return $this->redirect($this->referer());
+		// 	}else{
+		// 		$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+		// 	}
+		// }
 		$this->set(compact('data'));
 	}
 
@@ -130,11 +134,11 @@ class LeadershipsController extends AppController{
 		}
 		$this->Leadership->locale = Configure::read('Config.language');
 		$this->Leadership->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
-		$post = $this->Leadership->findById($id);
+		$data = $this->Leadership->findById($id);
 	
-		$title_for_layout = $post['Leadership']['title'];
-		$meta['keywords'] = $post['Leadership']['keywords'];
-		$meta['description'] = $post['Leadership']['description'];
-		$this->set(compact('post', '','title_for_layout' ,'meta'));
+		$title_for_layout = $data['Leadership']['title'];
+		// $meta['keywords'] = $post['Leadership']['keywords'];
+		// $meta['description'] = $post['Leadership']['description'];
+		$this->set(compact('data', '','title_for_layout' ,'meta'));
 	}
 }
