@@ -16,7 +16,7 @@
     <script src="/js/icon.js" type="text/javascript"></script>
 	</head>
 	
-	<body class="main second-page ">
+	<body class="main second-page  " style="background-image: url(../img/page-background.jpg)">
 	<div class="page">
 		<header class="header">
 			<div class="header-top-line">
