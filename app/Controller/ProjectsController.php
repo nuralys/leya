@@ -178,4 +178,36 @@ class ProjectsController extends AppController{
 		$this->set(compact('data', 'title_for_layout', 'meta'));
 	}
 
+	public function description($id){
+		if(is_null($id) || !(int)$id || !$this->Project->exists($id)){
+			throw new NotFoundException('Такой страницы нет...');
+		}
+		$this->Project->locale = Configure::read('Config.language');
+		$this->Project->bindTranslation(array('title' => 'titleTranslation'));
+		$data = $this->Project->findById($id);
+		// debug($data);
+		// die;
+		// $aside = $this->Project->find('all');
+		$title_for_layout = $data['Project']['title'];
+		// $meta['keywords'] = $post['Project']['keywords'];
+		// $meta['description'] = $post['Project']['description'];
+		$this->set(compact('data', 'title_for_layout' ,'meta'));
+	}
+
+	public function location($id){
+		if(is_null($id) || !(int)$id || !$this->Project->exists($id)){
+			throw new NotFoundException('Такой страницы нет...');
+		}
+		$this->Project->locale = Configure::read('Config.language');
+		$this->Project->bindTranslation(array('title' => 'titleTranslation'));
+		$data = $this->Project->findById($id);
+		// debug($data);
+		// die;
+		// $aside = $this->Project->find('all');
+		$title_for_layout = $data['Project']['title'];
+		// $meta['keywords'] = $post['Project']['keywords'];
+		// $meta['description'] = $post['Project']['description'];
+		$this->set(compact('data', 'title_for_layout' ,'meta'));
+	}
+
 }

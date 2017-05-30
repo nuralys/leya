@@ -12,6 +12,19 @@
 		array('language' => '[a-z]{2}')
 	);
 
+	Router::connect('/:language/projects/description/*', 
+		array('controller' => 'projects', 'action' => 'description'),
+		array('language' => '[a-z]{2}')
+	);
+	Router::connect('/:language/projects/location/*', 
+		array('controller' => 'projects', 'action' => 'location'),
+		array('language' => '[a-z]{2}')
+	);
+	Router::connect('/:language/projects/plan/*', 
+		array('controller' => 'projects', 'action' => 'plan'),
+		array('language' => '[a-z]{2}')
+	);
+
 	Router::connect('/:language/page/*', 
 		array('controller' => 'pages', 'action' => 'page'),
 		array('language' => '[a-z]{2}')

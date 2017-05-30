@@ -1,29 +1,32 @@
 <?php
 
-class VacanciesController extends AppController{
-	// public $uses = array('Vacancy', 'Category', 'Country');
+class PresentationsController extends AppController{
+	// public $uses = array('Presentation', 'Category', 'Country');
 	public function beforeFilter(){
 		parent::beforeFilter();
 	}
 
 	public function index(){
-		$this->Vacancy->locale = Configure::read('Config.language');
-		$this->Vacancy->bindTranslation(array('title' => 'titleTranslation'));
-		$data = $this->Vacancy->find('all', array(
-			'order' => array('Vacancy.id' => 'desc')
+		$this->Presentation->locale = Configure::read('Config.language');
+		$this->Presentation->bindTranslation(array('title' => 'titleTranslation'));
+		$data = $this->Presentation->find('all', array(
+			'order' => array('Presentation.id' => 'desc')
 		));
-		$title_for_layout = __('Полезная информация');
+		
+		// debug($new);
+		// die;
+		$title_for_layout = __('Презентация проектов');
 		$this->set(compact('title_for_layout', 'data'));
 	}
 
 	public function admin_index(){
-		$this->Vacancy->locale = array('ru', 'kz');
-		$this->Vacancy->bindTranslation(array('title' => 'titleTranslation'));
-		$data = $this->Vacancy->find('all');
+		$this->Presentation->locale = array('ru', 'kz');
+		$this->Presentation->bindTranslation(array('title' => 'titleTranslation'));
+		$data = $this->Presentation->find('all');
 		
 		if($this->request->is('post')){
-			$anons = $this->request->data['Vacancy']['anons'];
-			$news_id = $this->request->data['Vacancy']['news_id'];
+			$anons = $this->request->data['Presentation']['anons'];
+			$news_id = $this->request->data['Presentation']['news_id'];
 			// debug($news_id);
 			// die;
 
@@ -42,22 +45,26 @@ class VacanciesController extends AppController{
 
 	public function admin_add(){
 		if($this->request->is('post')){
-			$this->Vacancy->create();
-			$data = $this->request->data['Vacancy'];
+			$this->Presentation->create();
+			$data = $this->request->data['Presentation'];
 			// debug($this->request->data);
 			// debug($data);
+			// die;
 			if(!isset($data['img']['name']) || !$data['img']['name']){
 				unset($data['img']);
 			}
-			if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'kz'){
-				$this->Vacancy->locale = 'kz';
-			}elseif(isset($this->request->query['lang']) && $this->request->query['lang'] == 'en'){
-				$this->Vacancy->locale = 'en';
-			}else{
-				$this->Vacancy->locale = 'ru';
+			if(!isset($data['pdf']['name']) || !$data['pdf']['name']){
+				unset($data['pdf']);
 			}
-			// $this->Vacancy->locale = 'ru';
-			if($this->Vacancy->save($data)){
+			if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'kz'){
+				$this->Presentation->locale = 'kz';
+			}elseif(isset($this->request->query['lang']) && $this->request->query['lang'] == 'en'){
+				$this->Presentation->locale = 'en';
+			}else{
+				$this->Presentation->locale = 'ru';
+			}
+			// $this->Presentation->locale = 'ru';
+			if($this->Presentation->save($data)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
 				// debug($data);
 				return $this->redirect($this->referer());
@@ -69,38 +76,41 @@ class VacanciesController extends AppController{
 
 	public function admin_edit($id){
 
-		if(is_null($id) || !(int)$id || !$this->Vacancy->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Presentation->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->Vacancy->findById($id);
+		$data = $this->Presentation->findById($id);
 		if(!$id){
 			throw new NotFoundException('Такой страницы нет...');
 		}
 		if($this->request->is(array('post', 'put'))){
-			$this->Vacancy->id = $id;
-			// $this->Vacancy->locale = Configure::read('Config.languages');
-			// debug($this->Vacancy->locale);
+			$this->Presentation->id = $id;
+			// $this->Presentation->locale = Configure::read('Config.languages');
+			// debug($this->Presentation->locale);
 			// debug($this->request->data);
-			$data1 = $this->request->data['Vacancy'];
+			$data1 = $this->request->data['Presentation'];
 			if(!isset($data1['img']['name']) || !$data1['img']['name']){
 				unset($data1['img']);
 			}
+			if(!isset($data1['mypdf']['name']) || !$data1['mypdf']['name']){
+				unset($data1['mypdf']);
+			}
 
 			if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'kz'){
-				$this->Vacancy->locale = 'kz';
+				$this->Presentation->locale = 'kz';
 			}elseif(isset($this->request->query['lang']) && $this->request->query['lang'] == 'en'){
-				$this->Vacancy->locale = 'en';
+				$this->Presentation->locale = 'en';
 			}else{
-				$this->Vacancy->locale = 'ru';
+				$this->Presentation->locale = 'ru';
 			}
 			
-			// $this->Vacancy->locale = 'kz';
+			// $this->Presentation->locale = 'kz';
 			// debug($data1);
 			$data1['id'] = $id;
 		// 	debug($data1);
 		// die;
 			
-			if($this->Vacancy->save($data1)){
+			if($this->Presentation->save($data1)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
 				// return $this->redirect($this->referer());
 			}else{
@@ -112,8 +122,8 @@ class VacanciesController extends AppController{
 			$this->request->data = $data1;
 			$data = $data1;
 		}else{
-			$this->Vacancy->locale = $this->request->query['lang'];
-			$data = $this->request->data = $this->Vacancy->read(null, $id);
+			$this->Presentation->locale = $this->request->query['lang'];
+			$data = $this->request->data = $this->Presentation->read(null, $id);
 		}
 			
 			$this->set(compact('id', 'data'));
@@ -121,10 +131,10 @@ class VacanciesController extends AppController{
 	}
 
 	public function admin_delete($id){
-		if (!$this->Vacancy->exists($id)) {
+		if (!$this->Presentation->exists($id)) {
 			throw new NotFounddException('Такой статьи нет');
 		}
-		if($this->Vacancy->delete($id)){
+		if($this->Presentation->delete($id)){
 			$this->Session->setFlash('Удалено', 'default', array(), 'good');
 		}else{
 			$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
@@ -133,17 +143,17 @@ class VacanciesController extends AppController{
 	}
 
 	public function view($id){
-		if(is_null($id) || !(int)$id || !$this->Vacancy->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Presentation->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$this->Vacancy->locale = Configure::read('Config.language');
-		$this->Vacancy->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
-		$data = $this->Vacancy->findById($id);
-	// debug($data);
-		$title_for_layout = $data['Vacancy']['title'];
-		// $meta['keywords'] = $post['Vacancy']['keywords'];
-		// $meta['description'] = $post['Vacancy']['description'];
-		$this->set(compact('data','title_for_layout'));
+		$this->Presentation->locale = Configure::read('Config.language');
+		$this->Presentation->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		$post = $this->Presentation->findById($id);
+	
+		$title_for_layout = $post['Presentation']['title'];
+		$meta['keywords'] = $post['Presentation']['keywords'];
+		$meta['description'] = $post['Presentation']['description'];
+		$this->set(compact('post', '','title_for_layout' ,'meta'));
 	}
 
 }

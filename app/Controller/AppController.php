@@ -59,12 +59,22 @@ class AppController extends Controller {
                 $this->layout = 'index';
             }elseif($this->params['controller']=='projects' && $this->params['action']=='index'){
                 $this->layout = 'projects';
+                
+                //projects inner pages
+            }elseif($this->params['controller']=='projects' && $this->params['action']=='description'){
+                $this->layout = 'one_project';
             }elseif($this->params['controller']=='projects' && $this->params['action']=='plan'){
                 $this->layout = 'one_project';
+            }elseif($this->params['controller']=='projects' && $this->params['action']=='location'){
+                $this->layout = 'one_project';
+                //projects inner pages end
+
             }elseif($this->params['controller']=='reviews' && $this->params['action']=='index'){
                 $this->layout = 'reviews';
             }elseif($this->params['controller']=='constructions' && $this->params['action']=='index'){
                 $this->layout = 'reviews';
+            }elseif($this->params['controller']=='pages' && $this->params['action']=='page'){
+                $this->layout = 'about';
             }elseif($this->params['controller']=='news' && $this->params['action']=='view'){
                 $this->layout = 'about';
             }else{

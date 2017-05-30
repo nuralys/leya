@@ -6,7 +6,7 @@
 <?php foreach ($data as $item) : ?>
 	<tr>
 	<td>
-	<?php  foreach($item['titleTranslation'] as $title): ?>
+	<?php  foreach($item['nameTranslation'] as $title): ?>
 		<?= $title['locale'] .': '. $title['content']; ?><br>
 	<?php endforeach; ?>
 	</td>

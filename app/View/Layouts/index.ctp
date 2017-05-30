@@ -52,7 +52,7 @@
         <div class="header-bottom-height"></div>
         <div class="header-bottom">
           <div class="cr">
-            <a href="" class="header-logo">
+            <a href="/<?=$lang?>" class="header-logo">
               <img src="img/logo.png" alt="">
             </a>
             <div class="searach-container">
@@ -70,31 +70,31 @@
               <div class="sub-menu-container">
                 <ul class="sub-menu">
                       <li>
-                        <a href="">МИССИЯ И СТРАТЕГИЯ</a>
+                        <a href="/<?=$lang?>page/mission">МИССИЯ И СТРАТЕГИЯ</a>
                       </li>
                       <li>
-                        <a href="">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ </a>
+                        <a href="/<?=$lang?>page/word-from-principle">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ </a>
                       </li>
                       <li>
-                        <a href="">РУКОВОДСТВО</a>
+                        <a href="/<?=$lang?>leaderships">РУКОВОДСТВО</a>
                       </li>
                       <li>
-                        <a href="">О КОМПАНИИ</a>
+                        <a href="/<?=$lang?>page/about">О КОМПАНИИ</a>
                       </li>
                       <li>
-                        <a href="">Отзывы</a>
+                        <a href="/<?=$lang?>reviews">Отзывы</a>
                       </li>
                       <li>
-                        <a href="">Презентация и видео</a>
+                        <a href="/<?=$lang?>presentations">Презентация и видео</a>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li><a href="">проекты  </a></li>
-                <li><a href="">ход строительства </a></li>
-                <li><a href="">новости и события</a></li>
-                <li><a href="">вакансии</a></li>
-                <li><a href="">        КОНТАКТЫ</a></li>
+                <li><a href="/<?=$lang?>projects">проекты  </a></li>
+                <li><a href="/<?=$lang?>constructions">ход строительства </a></li>
+                <li><a href="/<?=$lang?>news">новости и события</a></li>
+                <li><a href="/<?=$lang?>vacancies">вакансии</a></li>
+                <li><a href="/<?=$lang?>contacts">        КОНТАКТЫ</a></li>
               </ul>
             </div>
           </div>

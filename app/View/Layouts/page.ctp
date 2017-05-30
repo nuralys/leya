@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Lea *</title>
+		<title>Lea page</title>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 		<meta name="keyword" content="">
 		<meta name="description" content="">
@@ -52,7 +52,7 @@
 				<div class="header-bottom-height"></div>
 				<div class="header-bottom">
 					<div class="cr">
-						<a href="" class="header-logo">
+						<a href="/<?=$lang?>" class="header-logo">
 							<img src="/img/logo.png" alt="">
 						</a>
 						<div class="searach-container">
@@ -64,38 +64,7 @@
 							</div>
 						</div>
 						<div class="menu-container">
-						<ul class="menu">
-							<li>
-							<a >      о компании    </a>
-							<div class="sub-menu-container">
-								<ul class="sub-menu">
-											<li>
-												<a href="">МИССИЯ И СТРАТЕГИЯ</a>
-											</li>
-											<li>
-												<a href="">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ	</a>
-											</li>
-											<li>
-												<a href="">РУКОВОДСТВО</a>
-											</li>
-											<li>
-												<a href="">О КОМПАНИИ</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>reviews">Отзывы</a>
-											</li>
-											<li>
-												<a href="">Презентация и видео</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="/<?=$lang?>projects">проекты  </a></li>
-								<li><a href="">ход строительства </a></li>
-								<li><a href="/<?=$lang?>news">новости и события</a></li>
-								<li><a href="/<?=$lang?>vacancies">вакансии</a></li>
-								<li><a href="/<?=$lang?>contacts">        КОНТАКТЫ</a></li>
-							</ul>
+						<?php echo $this->element('header') ?>
 						</div>
 					</div>
 				</div>

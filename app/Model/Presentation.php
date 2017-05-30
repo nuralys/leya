@@ -1,12 +1,11 @@
 <?php 
 
-class Leadership extends AppModel{
+class Presentation extends AppModel{
 	public $actsAs = array(
 		'Translate' => array(
 			'title',
-			'body',
-			'position'
-			
+			// 'mypdf',
+			// 'video'
 			)
 		);
 	
@@ -14,10 +13,6 @@ class Leadership extends AppModel{
 		'title' => array(
 			'rule' => 'notEmpty',
 			'message' => 'Введите название'
-		),
-		'body' => array(
-			'rule' => 'notEmpty',
-			'message' => 'Введите текст'
 		),
 		'img' => array(
 			'uploadError' => array(
@@ -35,31 +30,78 @@ class Leadership extends AppModel{
 			),
 			'customUploadImg' => array(
 				'rule' => 'customUploadImg',
-				'message' => 'Ошибка обработки обработки картинки'
+				'message' => 'Ошибка обработки картинки'
+			)
+		),
+		'mypdf' => array(
+			'uploadError' => array(
+				'rule' => 'uploadError',
+				'message' => 'Ошибка загрузки файла1',
+				'allowEmpty' => true
+			),
+			'mimeType' => array(
+				'rule' => array('mimeType', array('application/pdf')),
+				'message' => 'Ошибка загрузки файла'
+			),
+			'fileSize' => array(
+				'rule' => array('fileSize', '<=', '5MB'),
+				'message' => 'Максимальный размер файла 5MB'
+			),
+			'customUploadFile' => array(
+				'rule' => 'customUploadFile',
+				'message' => 'Ошибка обработки файла'
 			)
 		)
 	);
 
-	public function customUploadImg($file = array()){
-		if(!is_uploaded_file($file['img']['tmp_name'])){
+	public function customUploadFile($file = array()){
+		// debug($file);
+		// die;
+		if(!is_uploaded_file($file['mypdf']['tmp_name'])){
 			return false;
 		}
-		$ext = strtolower(preg_replace("#.+\.([a-z]+)$#", "$1", $file['img']['name']));
+		$ext = strtolower(preg_replace("#.+\.([a-z]+)$#", "$1", $file['mypdf']['name']));
 		$fileName = $this->genNameFile($ext);
-		$path = WWW_ROOT . 'img/leaderships/' . $fileName;
-		$path_th = WWW_ROOT . 'img/leaderships/thumbs/' . $fileName;
-		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
+		$path = WWW_ROOT . 'files/presentations/' . $fileName;
+		//$path_th = WWW_ROOT . 'files/presentations/thumbs/' . $fileName;
+		if(!move_uploaded_file($file['mypdf']['tmp_name'], $path)){
 			return false;
 		}
-		$this->resizeImg($path, $path_th, 272, 204, $ext);
-		$this->data[$this->alias]['img'] = $fileName;
+		//$this->resizeImg($path, $path_th, 272, 204, $ext);
+		$this->data[$this->alias]['mypdf'] = $fileName;
 		return true;
 	}
 
 	public function genNameFile($ext){
 		$name = md5(microtime()) . ".{$ext}";
-		if(is_file(WWW_ROOT . 'img/leaderships/' . $name)){
+		if(is_file(WWW_ROOT . 'img/presentations/' . $name)){
 			$name = $this->genNameFile($ext);
+		}
+		return $name;
+	}
+
+	public function customUploadImg($file = array()){
+		// debug($file);
+		// die;
+		if(!is_uploaded_file($file['img']['tmp_name'])){
+			return false;
+		}
+		$ext = strtolower(preg_replace("#.+\.([a-z]+)$#", "$1", $file['img']['name']));
+		$fileName = $this->genNameImg($ext);
+		$path = WWW_ROOT . 'img/presentations/' . $fileName;
+		$path_th = WWW_ROOT . 'img/presentations/thumbs/' . $fileName;
+		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
+			return false;
+		}
+		$this->resizeImg($path, $path_th, 550, 270, $ext);
+		$this->data[$this->alias]['img'] = $fileName;
+		return true;
+	}
+
+	public function genNameImg($ext){
+		$name = md5(microtime()) . ".{$ext}";
+		if(is_file(WWW_ROOT . 'img/presentations/' . $name)){
+			$name = $this->genNameImg($ext);
 		}
 		return $name;
 	}
@@ -113,4 +155,5 @@ class Leadership extends AppModel{
 		}
 		imagedestroy($newImg);
 	}
+	
 }
