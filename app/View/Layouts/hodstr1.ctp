@@ -52,7 +52,7 @@
 				<div class="header-bottom-height"></div>
 				<div class="header-bottom">
 					<div class="cr">
-						<a href="" class="header-logo">
+						<a href="/<?=$lang?>" class="header-logo">
 							<img src="/img/logo.png" alt="">
 						</a>
 						<div class="searach-container">
@@ -64,38 +64,7 @@
 							</div>
 						</div>
 						<div class="menu-container">
-						<ul class="menu">
-							<li>
-							<a >      о компании    </a>
-							<div class="sub-menu-container">
-								<ul class="sub-menu">
-											<li>
-												<a href="">МИССИЯ И СТРАТЕГИЯ</a>
-											</li>
-											<li>
-												<a href="">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ	</a>
-											</li>
-											<li>
-												<a href="">РУКОВОДСТВО</a>
-											</li>
-											<li>
-												<a href="">О КОМПАНИИ</a>
-											</li>
-											<li>
-												<a href="">Отзывы</a>
-											</li>
-											<li>
-												<a href="">Презентация и видео</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="">проекты  </a></li>
-								<li><a href="">ход строительства </a></li>
-								<li><a href="">новости и события</a></li>
-								<li><a href="">вакансии</a></li>
-								<li><a href="">        КОНТАКТЫ</a></li>
-							</ul>
+						<?php echo $this->element('header') ?>
 						</div>
 					</div>
 				</div>
