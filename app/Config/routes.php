@@ -55,12 +55,16 @@
 	);
 	Router::connect('/admin/users/:action', array('controller' => 'users'));
 	Router::connect('/admin/service/:action/*', array('controller' => 'services', 'admin' => true));
-	Router::connect('/admin/plans/*', array('controller' => 'plans', 'admin' => true));
+	
+	Router::connect('/admin/plans/:action/*', array('controller' => 'plans', 'admin' => true));
+	// Router::connect('/admin/plans/*', array('controller' => 'plans', 'action'=>'admin_index'));
+
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index', 'Главная'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/projects/plan/*', array('controller' => 'projects', 'action' => 'plan'));
+	Router::connect('/constructions/view/*', array('controller' => 'constructions', 'action' => 'view'));
 	Router::connect('/category', array('controller' => 'categories', 'action' => 'index'));
 	Router::connect('/category/*', array('controller' => 'categories', 'action' => 'view'));
 	

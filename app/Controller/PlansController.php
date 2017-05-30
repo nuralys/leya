@@ -29,7 +29,7 @@ class PlansController extends AppController{
 		
 
 
-	public function admin_index($id){
+	public function admin_list($id){
 		// $this->Plan->locale = array('ru', 'kz');
 		// $this->Plan->bindTranslation(array('title' => 'titleTranslation'));
 		$data = $this->Plan->find('all', array(
@@ -58,6 +58,11 @@ class PlansController extends AppController{
 	}
 
 	public function admin_add(){
+		$this->Plan->Project->locale = Configure::read('Config.language');
+		$this->Plan->Project->bindTranslation(array('title' => 'titleTranslation'));
+		$projects = $this->Plan->Project->find('list');
+			// debug($projects);
+			// die;
 		if($this->request->is('post')){
 			$this->Plan->create();
 			$data = $this->request->data['Plan'];
@@ -66,13 +71,14 @@ class PlansController extends AppController{
 			if(!isset($data['img']['name']) || !$data['img']['name']){
 				unset($data['img']);
 			}
-			if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'kz'){
-				$this->Plan->locale = 'kz';
-			}elseif(isset($this->request->query['lang']) && $this->request->query['lang'] == 'en'){
-				$this->Plan->locale = 'en';
-			}else{
-				$this->Plan->locale = 'ru';
-			}
+
+			// if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'kz'){
+			// 	$this->Plan->locale = 'kz';
+			// }elseif(isset($this->request->query['lang']) && $this->request->query['lang'] == 'en'){
+			// 	$this->Plan->locale = 'en';
+			// }else{
+			// 	$this->Plan->locale = 'ru';
+			// }
 			// $this->Plan->locale = 'ru';
 			if($this->Plan->save($data)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
@@ -81,7 +87,9 @@ class PlansController extends AppController{
 			}else{
 				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
 			}
+
 		}
+		$this->set(compact('projects'));
 	}
 
 	public function admin_edit($id){
