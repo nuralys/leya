@@ -17,31 +17,6 @@ class ArticlesController extends AppController{
 		// $title_for_layout = __('Новости');
 		$this->set(compact('data'));
 	}
-		
-
-	public function search(){
-		$this->Article->locale = Configure::read('Config.language');
-		$this->Article->bindTranslation(array('title' => 'titleTranslation'));
-		$this->Gallery->locale = Configure::read('Config.language');
-		$this->Gallery->bindTranslation(array('title' => 'titleTranslation'));
-		$galleries = $this->Gallery->find('all', array(
-            'limit' => 3
-        ));
-		$stol = $this->Article->find('all', array(
-            'conditions' => array('category_id' => 5),
-            'limit' => 3
-        ));
-		$search = !empty($_GET['q']) ? $_GET['q'] : null;
-		if(is_null($search)){
-			$search_res = __('Введите пойсковый запрос...');
-			return $this->set(compact('search_res'));
-		}
-		$categories = $this->Category->find('all');
-		$title_for_layout = __('Поиск');
-		$search_res = $this->Article->query("SELECT * FROM i18n 
-			WHERE i18n.content LIKE '%{$search}%'");
-		$this->set(compact('search_res', 'title_for_layout', 'categories', 'stol', 'galleries'));
-	}
 
 	public function admin_index(){
 		$this->Article->locale = array('ru', 'kz');
@@ -92,6 +67,9 @@ class ArticlesController extends AppController{
 				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
 			}
 		}
+		$this->Article->Construction->locale = Configure::read('Config.language');
+		$constructions = $this->Article->Construction->find('list');
+		$this->set(compact('constructions'));
 	}
 
 	public function admin_edit($id){

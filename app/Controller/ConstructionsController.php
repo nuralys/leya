@@ -135,17 +135,17 @@ class ConstructionsController extends AppController{
 	}
 
 	public function view($id){
-		// if(is_null($id) || !(int)$id || !$this->Construction->exists($id)){
-		// 	throw new NotFoundException('Такой страницы нет...');
-		// }
-		// $this->Construction->locale = Configure::read('Config.language');
-		// $this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
-		// $post = $this->Construction->findById($id);
+		if(is_null($id) || !(int)$id || !$this->Construction->exists($id)){
+			throw new NotFoundException('Такой страницы нет...');
+		}
+		$this->Construction->locale = Configure::read('Config.language');
+		$this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		$data = $this->Construction->findById($id);
 	
-		// $title_for_layout = $post['Construction']['title'];
-		// $meta['keywords'] = $post['Construction']['keywords'];
-		// $meta['description'] = $post['Construction']['description'];
-		// $this->set(compact('post', '','title_for_layout' ,'meta'));
+		$title_for_layout = $data['Construction']['title'];
+		$meta['keywords'] = $data['Construction']['keywords'];
+		$meta['description'] = $data['Construction']['description'];
+		$this->set(compact('data', '','title_for_layout' ,'meta'));
 	}
 
 }

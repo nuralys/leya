@@ -1,1 +1,1 @@
-view.ctp
+<!-- Заходить в Layouts/hodstr.ctp-- >

@@ -1,4 +1,5 @@
 <a href="/admin/constructions/add">Добавить материал</a>
+<!-- <a href="/admin/articles">Новости</a> -->
 <!--на русском</a> | <a href="/admin/constructions/add?lang=kz">Добавить на казахском</a>-->
 <br>
 <table>

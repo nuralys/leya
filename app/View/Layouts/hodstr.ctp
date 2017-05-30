@@ -86,34 +86,25 @@
 				<div class="content-compani-container">
 					<div class="content-compani-top">
 						<div class="title">
-							ЖК “ЗА РЕКОЙ”
+							<?=$title_for_layout;?>
 						</div>
 						<div class="raspolozhenie-text">
-							<p>
-								Жилой комплекс «Сарыбулак» расположен в самом центре города Астана на пересечении улиц Республиканской и Советской на улице Победы. Жилой комплекс расположен в буферной зоне исторического центра Астаны, включенного в список всемирного наследия ЮНЕСКО.
-							</p>
+							<?php echo $data['Construction']['body'] ?>
 						</div>	
+						<?php //debug($data);die; ?>
 						<div class="storitelsto-news">
 							<div class="storitelsto-news__title">
 								Последние новости
 							</div>
 							<div class="storitelsto-news__slider">
+							<?php foreach($data['Article'] as $item): ?>
 								<div class="storitelsto-news__slider--item">
 									<div class="storitelsto-news__slider--item--date">
-											15. 05. 2017
+											<?php echo $this->Time->format($item['date'], '%d.%m.%Y', 'invalid'); ?>
 									</div>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-									</p>
+									<?php echo $item['body']; ?>
 								</div>	
-								<div class="storitelsto-news__slider--item">
-									<div class="storitelsto-news__slider--item--date">
-											15. 05. 2017
-									</div>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum 
-									</p>
-								</div>	
+								<?php endforeach ?>
 							</div>	
 						</div>
 						<div class="title">
@@ -153,37 +144,37 @@
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m6">
 											Июнь
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m7">
 											Июль
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m8">
 											Август
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m9">
 											Сентябрь
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m10">
 											Октябрь
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m11">
 											Ноябрь
 										</a>
 									</li>
 									<li>
-										<a href="">
+										<a href="#m12">
 											Декабрь
 										</a>
 									</li>
@@ -444,6 +435,27 @@
 									</div>
 									<div class="tab-month__item" id="m5">
 									5
+									</div>
+									<div class="tab-month__item" id="m6">
+									6
+									</div>
+									<div class="tab-month__item" id="m7">
+									7
+									</div>
+									<div class="tab-month__item" id="m8">
+									8
+									</div>
+									<div class="tab-month__item" id="m9">
+									9
+									</div>
+									<div class="tab-month__item" id="m10">
+									10
+									</div>
+									<div class="tab-month__item" id="m11">
+									11
+									</div>
+									<div class="tab-month__item" id="m12">
+									12
 									</div>
 								</div>
 							</div>
