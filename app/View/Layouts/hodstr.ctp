@@ -72,6 +72,17 @@
 		</header> 
 		<div class="container">
 			<div class="cr">
+				<div class="sibe-bar ">
+					<div class="sibe-bar__title">
+						проекты
+					</div>
+					<ul class="sibe-bar-list">
+						<li class="project"><a href="">ЖК “ЗА РЕКОЙ”</a></li>
+						<li class="project"><a href="">ЖК “ЗА РЕКОЙ” 2</a></li>
+						<li class="project"><a href="">ЖК “ЗА РЕКОЙ” 3</a></li>
+						
+					</ul>
+				</div>
 				<div class="content-compani-container">
 					<div class="content-compani-top">
 						<div class="title">

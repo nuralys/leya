@@ -109,6 +109,7 @@
 строительства
 				</div>
 			</div>
+			<div class="content-container ">
 					<ul class="project-list">
 						<li>
 							<div class="project-item">
@@ -291,6 +292,7 @@
 							</div>
 						</li>
 					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
