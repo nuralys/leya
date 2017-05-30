@@ -80,13 +80,14 @@ body {
   width: 116px;
 }
 .page {
-  max-width: 1920px;
-  margin: 0 auto;
-  height: 100%;
-  overflow: hidden;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+    height: 100vh;
 }
 .main.second-page {
-  background-image: url(../img/page-background.jpg);
+  background-image: url(../img/vokan-bg.png);
   background-attachment: fixed;
   -moz-background-size: cover;
     -o-background-size: cover;
@@ -638,6 +639,9 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.content .content-title {
+    color: #000;
+}
 .back-link {
   color: #c32328;
   font-size: 16px;
@@ -679,6 +683,7 @@ body {
   width: 50%;
   display: inline-block;
   margin-bottom: 50px;
+  vertical-align: top;
 }
 .news-list li:nth-child(2n) .news-item {
   margin-right: 0;
@@ -3079,7 +3084,7 @@ a.ui-button:active .var-link:before,
     /* width: 100%; */
     height: 100%;
 }
-@media screen and (max-width: 1530px) {
+@media screen and (max-width: 1630px) {
   .sibe-bar.project-side-bar .sibe-bar-list a {
       width: 232px;
   }
@@ -3093,18 +3098,20 @@ a.ui-button:active .var-link:before,
   .project-list li {
       width: 33.3%;
   }
-  .content-container {
+  .content-container,.content-compani-container {
       margin-left: 235px;
   }
   .sibe-bar-list li a {
-    width: 130px;
-    font-size: 14px;
+      width: 148px;
+      font-size: 13px;
+  }
+  .sibe-bar__title span {
+      font-size: 28px;
+      display: block;
   }
   .content-compani-top,
   .content-compani-bottom {
-    width: 75%;
     padding: 25px 35px 25px;
-    float: right;
   }
   .title {
     font-size: 20px;
@@ -3112,5 +3119,32 @@ a.ui-button:active .var-link:before,
   p {
     font-size: 14px!important;
     line-height: 1.5!important;
+  }
+  .pre-icon-list li {
+      width: 33.3%;
+      height: 268px;
+  }
+  .pre-item__img {
+      margin-bottom: 15px;
+  }
+  .content-title {
+      color: #000;
+      font-size: 24px;
+      margin-bottom: 25px;
+  }
+  .content-top {
+      padding: 25px 30px 0;
+  }
+  .news-item__title {
+      font-size: 20px;
+      margin-bottom: 10px;
+  }
+  .news-item {
+    font-size: 14px;
+      padding: 20px;
+  }
+  .year {
+      font-size: 128px;
+      line-height: 1.1;
   }
 }
