@@ -55,6 +55,7 @@
 	);
 	Router::connect('/admin/users/:action', array('controller' => 'users'));
 	Router::connect('/admin/service/:action/*', array('controller' => 'services', 'admin' => true));
+	Router::connect('/admin/plans/*', array('controller' => 'plans', 'admin' => true));
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index', 'Главная'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
