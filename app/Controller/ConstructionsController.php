@@ -17,31 +17,6 @@ class ConstructionsController extends AppController{
 		$title_for_layout = __('Новости');
 		$this->set(compact('title_for_layout', 'data'));
 	}
-		
-
-	public function search(){
-		$this->Construction->locale = Configure::read('Config.language');
-		$this->Construction->bindTranslation(array('title' => 'titleTranslation'));
-		$this->Gallery->locale = Configure::read('Config.language');
-		$this->Gallery->bindTranslation(array('title' => 'titleTranslation'));
-		$galleries = $this->Gallery->find('all', array(
-            'limit' => 3
-        ));
-		$stol = $this->Construction->find('all', array(
-            'conditions' => array('category_id' => 5),
-            'limit' => 3
-        ));
-		$search = !empty($_GET['q']) ? $_GET['q'] : null;
-		if(is_null($search)){
-			$search_res = __('Введите пойсковый запрос...');
-			return $this->set(compact('search_res'));
-		}
-		$categories = $this->Category->find('all');
-		$title_for_layout = __('Поиск');
-		$search_res = $this->Construction->query("SELECT * FROM i18n 
-			WHERE i18n.content LIKE '%{$search}%'");
-		$this->set(compact('search_res', 'title_for_layout', 'categories', 'stol', 'galleries'));
-	}
 
 	public function admin_index(){
 		$this->Construction->locale = array('ru', 'kz');
@@ -160,17 +135,17 @@ class ConstructionsController extends AppController{
 	}
 
 	public function view($id){
-		if(is_null($id) || !(int)$id || !$this->Construction->exists($id)){
-			throw new NotFoundException('Такой страницы нет...');
-		}
-		$this->Construction->locale = Configure::read('Config.language');
-		$this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
-		$post = $this->Construction->findById($id);
+		// if(is_null($id) || !(int)$id || !$this->Construction->exists($id)){
+		// 	throw new NotFoundException('Такой страницы нет...');
+		// }
+		// $this->Construction->locale = Configure::read('Config.language');
+		// $this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		// $post = $this->Construction->findById($id);
 	
-		$title_for_layout = $post['Construction']['title'];
-		$meta['keywords'] = $post['Construction']['keywords'];
-		$meta['description'] = $post['Construction']['description'];
-		$this->set(compact('post', '','title_for_layout' ,'meta'));
+		// $title_for_layout = $post['Construction']['title'];
+		// $meta['keywords'] = $post['Construction']['keywords'];
+		// $meta['description'] = $post['Construction']['description'];
+		// $this->set(compact('post', '','title_for_layout' ,'meta'));
 	}
 
 }

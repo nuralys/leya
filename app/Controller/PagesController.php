@@ -150,17 +150,20 @@ class PagesController extends AppController {
 	}
 
 	public function contacts(){
-		$title_for_layout = "Контакты";
-		$this->set(compact('title_for_layout'));
-	}
+		$this->Page->locale = Configure::read('Config.language');
+		$this->Page->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		$page = $this->Page->findByAlias('contacts');
+		if(!$page){
+			throw new NotFoundException("Такой страницы нету");
+		}
+		// debug($page);
+		// die;
+		$title_for_layout = $page['Page']['title'];
+		$meta['keywords'] = $page['Page']['keywords'];
+		$meta['description'] = $page['Page']['description'];
 
-	public function purchase(){
-		$title_for_layout = "Закупки";
-		$this->set(compact('title_for_layout'));
-	}
-	public function scheme(){
-		$title_for_layout = "Схема работы";
-		$this->set(compact('title_for_layout'));
+		
+		$this->set(compact('page','title_for_layout'));
 	}
 
 }

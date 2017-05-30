@@ -100,7 +100,7 @@
 												в данный момент здесь
 												находится “рыба-текст”...</p>
 											</div>
-											<a href="/<?=$lang?>projects/<?php echo $item['Project']['id'] ?>" class="project-item--button">
+											<a href="/<?=$lang?>projects/description/<?php echo $item['Project']['id'] ?>" class="project-item--button">
 												Узнать подробнее
 											</a>
 										</div>
