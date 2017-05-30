@@ -18,7 +18,7 @@
   
   <body class="main second-page ">
   <div class="page">
-    <header class="header">
+    <header class="header fixed">
       <div class="header-top-line">
         <div class="cr">
           <ul class="header-item header-item--lang">

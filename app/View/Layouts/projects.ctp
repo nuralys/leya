@@ -64,38 +64,7 @@
 							</div>
 						</div>
 						<div class="menu-container">
-						<ul class="menu">
-							<li>
-							<a >      о компании    </a>
-							<div class="sub-menu-container">
-								<ul class="sub-menu">
-											<li>
-												<a href="/<?=$lang?>page/mission">МИССИЯ И СТРАТЕГИЯ</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>page/word-from-principle">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ	</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>leaderships">РУКОВОДСТВО</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>page/mission">О КОМПАНИИ</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>reviews">Отзывы</a>
-											</li>
-											<li>
-												<a href="/<?=$lang?>presentations">Презентация и видео</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="/<?=$lang?>projects">проекты  </a></li>
-								<li><a href="/<?=$lang?>constructions">ход строительства </a></li>
-								<li><a href="/<?=$lang?>news">новости и события</a></li>
-								<li><a href="/<?=$lang?>vacancies">вакансии</a></li>
-								<li><a href="/<?=$lang?>contacts">        КОНТАКТЫ</a></li>
-							</ul>
+						<?php echo $this->element('header') ?>
 						</div>
 					</div>
 				</div>
@@ -111,37 +80,36 @@
 						<li class="project"><a href="">Реализованные проекты</a></li>
 						<li class="raspolozhenie"><a href="">На стадии реализации</a></li>
 						<li class="planirovka"><a href="">Зарубежные проекты</a></li>
-						<li class="gallery"> <a href="">Галерея</a></li>
-						<li class="tehnologia"><a href="">Технологии</a></li>
-						<li class="contact"><a href="">контакты</a></li>
-						<li class="sravnit"><a href="">Сравнить</a></li>
+						
 					</ul>
 				</div>
+				<div class="content-container project-content-container">
 				<?php //debug($data); ?>
 					<ul class="project-list">
-					<?php foreach($data as $item): ?>
-						<li>
-							<div class="project-item">
-								<img src="/img/projects/thumbs/<?php echo $item['Project']['img'] ?>">
-								<div class="project-item__hover">
-									<div class="project-item__hover-conatiner">
-										<div class="project-item__hover--title">
-											<?php echo $item['Project']['title'] ?>
+						<?php foreach($data as $item): ?>
+							<li>
+								<div class="project-item">
+									<img src="/img/projects/thumbs/<?php echo $item['Project']['img'] ?>">
+									<div class="project-item__hover">
+										<div class="project-item__hover-conatiner">
+											<div class="project-item__hover--title">
+												<?php echo $item['Project']['title'] ?>
+											</div>
+											<div class="project-item__hover--text">
+												<p>Жилой комплекс и кратка информация о нём,
+												в данный момент здесь
+												находится “рыба-текст”...</p>
+											</div>
+											<a href="/<?=$lang?>projects/<?php echo $item['Project']['id'] ?>" class="project-item--button">
+												Узнать подробнее
+											</a>
 										</div>
-										<div class="project-item__hover--text">
-											<p>Жилой комплекс и кратка информация о нём,
-											в данный момент здесь
-											находится “рыба-текст”...</p>
-										</div>
-										<a href="/<?=$lang?>projects/<?php echo $item['Project']['id'] ?>" class="project-item--button">
-											Узнать подробнее
-										</a>
-									</div>
-								</div>	
-							</div>
-						</li>
-					<?php endforeach ?>
-					</ul>
+									</div>	
+								</div>
+							</li>
+						<?php endforeach ?>
+						</ul>
+					</div>
 			</div>
 		</div>
 	</div>

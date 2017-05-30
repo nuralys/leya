@@ -27,7 +27,7 @@
 					<?=$item['Vacancy']['title'] ?>
 				</td>
 				<td>
-				<a href="/<?=$lang?>vacancies/view/<?=$item['Vacancy']['id'] ?>"><?=$item['Vacancy']['position'] ?></a>
+				<a href="/<?=$lang?>vacancies/view/<?=$item['Vacancy']['id'] ?>" class="add-resume"><?=$item['Vacancy']['position'] ?></a>
 				</td>
 				<td>
 				<a href="" class="add-resume">Подать резюме</a>

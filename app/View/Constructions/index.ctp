@@ -1,9 +1,10 @@
-<div class="sibe-bar project-side-bar">
+<div class="sibe-bar ">
 	<div class="sibe-bar__title">
 		Ход
 		строительства
 	</div>
 </div>
+<div class="content-container ">
 <ul class="project-list">
 	<li>
 		<div class="project-item">
@@ -186,3 +187,4 @@
 		</div>
 	</li>
 </ul>
+</div>
