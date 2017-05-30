@@ -78,9 +78,8 @@
 					</div>
 					<ul class="sibe-bar-list">
 						<li class="project"><a href="">Реализованные проекты</a></li>
-						<li class="raspolozhenie"><a href="">На стадии реализации</a></li>
-						<li class="planirovka"><a href="">Зарубежные проекты</a></li>
-						
+						<li class="project"><a href="">На стадии реализации</a></li>
+						<li class="project"><a href="">Зарубежные проекты</a></li>
 					</ul>
 				</div>
 				<div class="content-container project-content-container">
