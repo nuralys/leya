@@ -27,7 +27,7 @@ class PagesController extends AppController {
 		// 	throw new NotFoundException("Такой страницы нету");
 		// }
 		
-		$title_for_layout = __('Fergus - Закупка и экспорт сельскохозяйственной продукции');
+		$title_for_layout = __('Строительная компания Лея');
 		// $meta['keywords'] = $page['Page']['keywords'];
 		// $meta['description'] = $page['Page']['description'];
 		$this->set(compact('main', 'title_for_layout', 'meta', 'news'));

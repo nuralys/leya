@@ -64,38 +64,7 @@
               </div>
             </div>
             <div class="menu-container">
-            <ul class="menu">
-              <li>
-              <a >      о компании    </a>
-              <div class="sub-menu-container">
-                <ul class="sub-menu">
-                      <li>
-                        <a href="/<?=$lang?>page/mission">МИССИЯ И СТРАТЕГИЯ</a>
-                      </li>
-                      <li>
-                        <a href="/<?=$lang?>page/word-from-principle">СЛОВО ПЕРВОГО РУКОВОДИТЕЛЯ </a>
-                      </li>
-                      <li>
-                        <a href="/<?=$lang?>leaderships">РУКОВОДСТВО</a>
-                      </li>
-                      <li>
-                        <a href="/<?=$lang?>page/about">О КОМПАНИИ</a>
-                      </li>
-                      <li>
-                        <a href="/<?=$lang?>reviews">Отзывы</a>
-                      </li>
-                      <li>
-                        <a href="/<?=$lang?>presentations">Презентация и видео</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li><a href="/<?=$lang?>projects">проекты  </a></li>
-                <li><a href="/<?=$lang?>constructions">ход строительства </a></li>
-                <li><a href="/<?=$lang?>news">новости и события</a></li>
-                <li><a href="/<?=$lang?>vacancies">вакансии</a></li>
-                <li><a href="/<?=$lang?>contacts">        КОНТАКТЫ</a></li>
-              </ul>
+            <?php echo $this->element('header') ?>
             </div>
           </div>
         </div>
@@ -191,7 +160,7 @@
               <div class="card-item h_height card-item--left missia">
                 <div class="inset-box">
                 <div class="missia-title">
-                  МИССИЯ И СТРАТЕГИЯ
+                  <a href="/<?=$lang?>page/mission">МИССИЯ И СТРАТЕГИЯ</a>
                 </div>
                 <p>
                   Краткое описание раздела
@@ -206,8 +175,8 @@
                   <img src="img/video.jpg" alt="">
                 </div>
                 <div class="card-item_mini-card slovo">
-                  слова первого<br>
-руководителя
+                  <a href="/<?=$lang?>page/word-from-principle">слова первого<br>
+руководителя</a>
                 </div>
               </div>
             </div>
@@ -223,7 +192,7 @@
                     в данный момент здесь
                     находится “Рыба-текст”...
                   </p>
-                  <a href="" class="button">
+                  <a href="/<?=$lang?>leaderships" class="button">
                     Узнать подробнее
                   </a>
                 </div>
@@ -232,7 +201,7 @@
                 <div class="card-item-children">
                   <div class="inset-box">
                     <div class="missia-title">
-                      О компании
+                      <a href="/<?=$lang?>page/about">О компании</a>
                     </div>
                     <p>
                       Краткое описание раздела
@@ -247,7 +216,7 @@
                     <a href="/<?=$lang?>reviews" class="link">Отзывы</a>
                   </div>
                   <div class="card-item_mini-card card-item_mini-card-prezintacia">
-                    <a href="" class="link">ПРЕЗЕНТАЦИЯ и видео</a>
+                    <a href="/<?=$lang?>presentations" class="link">ПРЕЗЕНТАЦИЯ и видео</a>
                   </div>
                 </div>
                 
