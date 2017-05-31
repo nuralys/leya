@@ -92,6 +92,7 @@
 							<?php echo $data['Construction']['body'] ?>
 						</div>	
 						<?php //debug($data);die; ?>
+						<?php if(!empty($data['Article'])):?>
 						<div class="storitelsto-news">
 							<div class="storitelsto-news__title">
 								Последние новости
@@ -107,6 +108,7 @@
 								<?php endforeach ?>
 							</div>	
 						</div>
+					<?php endif ?>
 						<div class="title">
 							Фото отчет
 						</div>
