@@ -37,6 +37,34 @@
 			</li>
 			<li>
 				<a href="">На стадии релизации</a>
+				<div class="sub-menu-child">
+					<ul class="sub-menu-child-list">
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+						<li>
+						<a href=""> test</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<li>
 				<a href="">Зарубежные проекты</a>
@@ -47,7 +75,7 @@
 	<li><a href="/<?=$lang?>constructions">Ход строительства</a>
 	<div class="sub-menu-container">
 		<ul class="sub-menu">
-			<li><a href="/<?=$lang?>projects">Проекты</a></li>
+			<li><a href="">Проекты</a></li>
 			<li>
 				<a href="">Почему стоит работать у нас</a>
 			</li>

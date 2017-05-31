@@ -1020,25 +1020,13 @@ table tr:nth-child(odd) td {
   margin-right: 40px;
 }
 .reviews-item__top {
-  padding: 25px 30px 25px 60px;
-  background-color: #2f603b;
-  color: #fff;
-  position: relative;
-  margin-bottom: 82px;
+    padding: 25px 30px 25px 30px;
+    background-color: #2f603b;
+    color: #fff;
+    position: relative;
+    margin-bottom: 55px;
 }
-.reviews-item__top:before {
-  content: '';
-  width: 37px;
-  height: 29px;
-  display: block;
-  background-image: url(../img/reviews-top.png);
-  position: absolute;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  left: 10px;
-  top: 29px;
-}
+
 .reviews-item__top:after {
   content: '';
   width: 57px;
@@ -3312,9 +3300,11 @@ a.ui-button:active .var-link:before,
 .big-plan{
   padding-top:35px;
 }
-.big-plan > div img{
-  display:block;
-  margin:0 auto;
+.big-plan > div img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
 .bot-plan{
   border-top:1px solid #ccc;
@@ -3489,6 +3479,24 @@ a.ui-button:active .var-link:before,
     text-transform: uppercase;
     padding: 10px 55px;
 }
+.sub-menu-child {
+    position: absolute;
+    top: -5px;
+    display: none;
+    z-index: 9999;
+    right: -196px;
+}
+.sub-menu li:hover .sub-menu-child{
+  display: block;
+}
+.sub-menu-child-list {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.46);
+    padding: 5px 14px;
+    width: 150px;
+    margin-top: 1px;
+    margin-left: 45px;
+}
 @media screen and (max-height: 800px) {
   .card-item {
     height: 330px;
@@ -3577,6 +3585,28 @@ a.ui-button:active .var-link:before,
       padding: 25px 30px;
   }
   .container .cr {
-      width: 1100px;
+      width: 1200px;
+  }
+  .reviews-item__top {
+      padding: 20px 20px 20px 20px;
+      background-color: #2f603b;
+      color: #fff;
+      position: relative;
+      margin-bottom: 32px;
+  }
+  .reviews-item__top:after {
+      content: '';
+      width: 30px;
+      height: 40px;
+      display: block;
+      bottom: -40px;
+      background-size: contain;
+  }
+     
+  .reviews-name {
+      font-size: 16px;
+  }
+  .reviews-prof {
+      font-size: 14px;
   }
 }
