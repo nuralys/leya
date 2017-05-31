@@ -1,4 +1,4 @@
-<a href="/admin/plans/add">Добавить</a><br>
+<a href="/admin/plans/add/<?=$this->request->params['pass'][0]?>">Добавить</a><br>
 <table>
 <th>ID</th><th>Проект</th><th>Блок</th><th>Комнатность</th><th>м²</th><th>Действия</th>
 <?php foreach ($data as $item) : ?>

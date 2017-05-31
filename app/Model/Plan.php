@@ -2,9 +2,9 @@
 class Plan extends AppModel {
 
 	public $belongsTo = array(
-		'Apartment' => array(
-			'className' => 'Apartment',
-			),
+		// 'Apartment' => array(
+		// 	'className' => 'Apartment',
+		// 	),
 		'Block' => array(
 			'className' => 'Block',
 			),

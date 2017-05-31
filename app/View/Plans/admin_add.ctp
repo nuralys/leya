@@ -7,13 +7,18 @@
 // die;
 echo $this->Form->create('Plan', array('type' => 'file'));
 ?>
-<div class="input select">
-<label for="PlanProjectId">Проекты:</label>
-	<select required name="data[Plan][project_id]" id="PlanProjectId">
-		<option value="">Выберите проект</option>
-		<?php foreach($projects as $key => $value): ?>
-			<option value="<?=$key?>"><?=$value?></option>
-		<?php endforeach ?>
+<input type="number" name="data[Plan][project_id]" id="PlanProjectId" value="<?=$this->request->params['pass'][0]?>">
+
+
+	<div class="input select">
+
+<label for="PlanBlockId">Список блоков:</label>
+	<select required name="data[Plan][block_id]" id="PlanBlockId">
+		<option value="">Выберите блок</option>
+		
+<?php foreach($blocks as $key => $value): ?>
+			<option value="<?=$value['Block']['id']?>"><?=$value['Block']['title']?></option>
+	<?php endforeach ?>
 	</select>
 </div>
 <?
