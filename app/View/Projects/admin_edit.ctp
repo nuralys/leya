@@ -1,6 +1,16 @@
+<?php  if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'ru'): ?>
+
+<ul>
+<li><a href="/admin/blocks/list/<?=$this->request->params['pass'][0]?>">Список блоков</a></li>
+<li><a href="/admin/blocks/add/<?=$this->request->params['pass'][0]?>">Добавить блок</a></li>
+	<li><a href="/admin/plans/list/<?=$this->request->params['pass'][0]?>">Список планировок</a></li>
+	<li><a href="/admin/plans/add/<?=$this->request->params['pass'][0]?>">Добавить планировоку</a></li>
+</ul>
+
+<?php endif ?>
 <div class="admin_add">
 	<div class="ad_up">
-		<h2>Редактирование новости</h2>
+		<h2>Редактирование проекта</h2>
 	</div>
 <?php
 echo $this->Form->create('Project', array('type' => 'file'));

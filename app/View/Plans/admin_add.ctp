@@ -29,7 +29,7 @@ echo $this->Form->input('square', array('label' => 'м²:'));
 ?>
 <div class="input select">
 <label for="PlanProjectId">Вид плана:</label>
-	<select required name="data[Plan][project_id]" id="PlanProjectId">
+	<select required name="data[Plan][plan_of_floor]" id="PlanProjectId">
 		<option value="1">План этажа</option>
 		<option value="0">План квартиры</option>
 	</select>

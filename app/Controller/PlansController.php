@@ -184,18 +184,62 @@ class PlansController extends AppController{
 		// $this->Project->Plan->locale = false;
 		// $this->Project->bindTranslation(array('title' => 'titleTranslation'));
 		// $data = $this->Plan->findById($project_id);
-		$block_id = 2;
+		//debug($this->request->params['pass'][1]);die;
+		// $block = $block;
+		// $block = substr($block, -1, 1);
+		$block_id = null;
+		if($block == null){
+			$sql = $this->Plan->Block->find('first', array(
+				'conditions' => array('Block.project_id' => $project_id)
+			));
+			if(isset($sql['Block']['id'])){
+				$block_id = $sql['Block']['id'];
+			}
+		}else{
+			$sql = $this->Plan->Block->find('first', array(
+				'conditions' => array(
+					array('Block.project_id' => $project_id),
+					array('Block.id' => $block)
+				)
+			));
+
+			if(isset($sql['Block']['id'])){
+				$block_id = $sql['Block']['id'];
+			}
+		}
+		
+		// debug($block_id);die;
+
+		
+		// debug($block_id);die;
+		// $block_id = 2;
 		// $plans = $this->Plan->Block->find('all', array(
 		// 	'conditions' => array('Block.id' => $block_id)
 		// ));
-		$plans = $this->Plan->find('all', array(
+		$data = $this->Plan->find('all', array(
 			'conditions' => array(
-				array('Plan.project_id' => 1),
-				array('Plan.block_id' => 3)
+				array('Plan.project_id' => $project_id),
+				array('Plan.block_id' => $block_id)
 				)
 		));
-		debug($plans);
-		die;
+
+		$blocks_list = $this->Plan->Block->find('all', array(
+			'conditions' => array(
+				array('Block.project_id' => $project_id)
+			),
+			'recursive' => -1
+		));
+		//$count_item = 2;
+		// for($c=0;$c<$count_item;$c++){
+			// foreach($r as $item){
+			// debug($item);
+			// }
+		// }
+
+		// die;
+		//$data = $data[0];
+		// debug($blocks_list);
+		// die;
 		//Определяем этажность
 		// $floors = $data['Apartment'];
 		// $floors_count = count($data['Apartment']);
@@ -239,7 +283,7 @@ class PlansController extends AppController{
 									
 		// 							 die;
 
-		$this->set(compact('data', 'title_for_layout', 'meta'));
+		$this->set(compact('data', 'title_for_layout', 'meta', 'blocks_list', 'block_id'));
 	}
 
 }
