@@ -77,9 +77,9 @@
 						проекты
 					</div>
 					<ul class="sibe-bar-list">
-						<li class="project"><a href="">Реализованные проекты</a></li>
-						<li class="project"><a href="">На стадии реализации</a></li>
-						<li class="project"><a href="">Зарубежные проекты</a></li>
+						<li class="project"><a href="/<?=$lang?>page/completed-projects">Реализованные проекты</a></li>
+						<li class="project"><a href="/<?=$lang?>projects?on_staeg=1">На стадии реализации</a></li>
+						<li class="project"><a href="/<?=$lang?>projects?foreign_project=1">Зарубежные проекты</a></li>
 					</ul>
 				</div>
 				<div class="content-container project-content-container">
@@ -95,12 +95,10 @@
 												<?php echo $item['Project']['title'] ?>
 											</div>
 											<div class="project-item__hover--text">
-												<p>Жилой комплекс и кратка информация о нём,
-												в данный момент здесь
-												находится “рыба-текст”...</p>
+												<p><?= $this->Text->truncate(strip_tags($item['Project']['body']), 90, array('ellipsis' => '...', 'exact' => true)) ?></p>
 											</div>
 											<a href="/<?=$lang?>projects/description/<?php echo $item['Project']['id'] ?>" class="project-item--button">
-												Узнать подробнее
+												<?php echo __('Узнать подробнее')?>
 											</a>
 										</div>
 									</div>	

@@ -1,43 +1,26 @@
-<?php
+<?php 
 
-class Project extends AppModel {
+class Advantage extends AppModel{
 	public $actsAs = array(
 		'Translate' => array(
 			'title',
-            'body',
-            'location',
-            'technologies',
-            'keywords',
-            'description'
+			'body'
 			)
 		);
 
-	public $hasMany = array(
-	        'Gallery' => array(
-	            'className'  => 'Gallery',
-	            // 'conditions' => array('Recipe.approved' => '1'),
-	            // 'order'      => 'Recipe.created DESC'
-	        ),
-	        'Block' => array(
-	        	'className' => 'Block'
-	        ),
-	        'Apartment' => array(
-	        	'className' => 'Apartment'
-	        ),
-	        'Plan' => array(
-	        	'className' => 'Plan'
-	        ),
-	        'Advantage' => array(
-	        	'className' => 'Advantage'
-	        )
-	    );
+	public $belongsTo = 'Project';
 
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',
-			'message' => 'Введите название товара'
+			'message' => 'Введите название'
+		),
+		'body' => array(
+			'rule' => 'notEmpty',
+			'message' => 'Введите текст'
 		),
 		'img' => array(
+			
 			'uploadError' => array(
 				'rule' => 'uploadError',
 				'message' => 'Ошибка загрузки картинки',
@@ -67,19 +50,19 @@ class Project extends AppModel {
 		}
 		$ext = strtolower(preg_replace("#.+\.([a-z]+)$#", "$1", $file['img']['name']));
 		$fileName = $this->genNameFile($ext);
-		$path = WWW_ROOT . 'img/projects/' . $fileName;
-		$path_th = WWW_ROOT . 'img/projects/thumbs/' . $fileName;
+		$path = WWW_ROOT . 'img/advantages/' . $fileName;
+		$path_th = WWW_ROOT . 'img/advantages/thumbs/' . $fileName;
 		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
 			return false;
 		}
-		$this->resizeImg($path, $path_th, 377, 234, $ext);
+		$this->resizeImg($path, $path_th, 77, 54, $ext);
 		$this->data[$this->alias]['img'] = $fileName;
 		return true;
 	}
 
 	public function genNameFile($ext){
 		$name = md5(microtime()) . ".{$ext}";
-		if(is_file(WWW_ROOT . 'img/projects/' . $name)){
+		if(is_file(WWW_ROOT . 'img/advantages/' . $name)){
 			$name = $this->genNameFile($ext);
 		}
 		return $name;
