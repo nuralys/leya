@@ -157,27 +157,30 @@
         <div class="cr-item">
           <div class="card-box">
             <div class="card-box__item ">
-              <div class="card-item h_height card-item--left missia">
+              <a href="/<?=$lang?>page/mission" class="card-item h_height card-item--left missia">
+                <div class="float-right-block">
                 <div class="inset-box">
-                <div class="missia-title">
-                  <a href="/<?=$lang?>page/mission">МИССИЯ И СТРАТЕГИЯ</a>
+                  <div class="missia-title">
+                    МИССИЯ И СТРАТЕГИЯ
+                  </div>
+                  <p>
+                    Краткое описание раздела
+  “Миссия и стратегия”,
+  в данный момент здесь
+  находится “Рыба-текст”...
+                  </p>
                 </div>
-                <p>
-                  Краткое описание раздела
-“Миссия и стратегия”,
-в данный момент здесь
-находится “Рыба-текст”...
-                </p>
-                </div>
-              </div>
+                </div>   
+              </a>
               <div class="card-item  h_height card-item--right">
-                <div class="card-item_mini-card">
-                  <img src="img/video.jpg" alt="">
-                </div>
-                <div class="card-item_mini-card slovo">
-                  <a href="/<?=$lang?>page/word-from-principle">слова первого<br>
-руководителя</a>
-                </div>
+                <a href="" class="card-item_mini-card prioritet">
+                 <div>Приоритеты <br>
+и ценности</div>
+                </a>
+                <a href="/<?=$lang?>page/word-from-principle" class="card-item_mini-card slovo">
+                  <div>слова первого<br>
+руководителя</div>
+                </a>
               </div>
             </div>
             <div class="card-box__item ">
@@ -198,10 +201,10 @@
                 </div>
               </div>
               <div class="card-item card-item-small">
-                <div class="card-item-children">
+                <a href="/<?=$lang?>page/about" class="card-item-children">
                   <div class="inset-box">
                     <div class="missia-title">
-                      <a href="/<?=$lang?>page/about">О компании</a>
+                      О компании
                     </div>
                     <p>
                       Краткое описание раздела
@@ -210,16 +213,15 @@
     находится “Рыба-текст”...
                     </p>
                   </div>
-                </div>
+                </a>
                 <div class="card-item_mini-card-container h_height">
-                  <div class="card-item_mini-card card-item_mini-card-preimushestvo">
-                    <a href="/<?=$lang?>reviews" class="">Отзывы</a>
-                  </div>
-                  <div class="card-item_mini-card card-item_mini-card-prezintacia">
-                    <a href="/<?=$lang?>presentations" class="">ПРЕЗЕНТАЦИЯ и видео</a>
-                  </div>
+                  <a href="/<?=$lang?>reviews" class="card-item_mini-card card-item_mini-card-preimushestvo">
+                   Отзывы
+                  </a>
+                   <a href="/<?=$lang?>presentations" class="card-item_mini-card card-item_mini-card-prezintacia">
+                   ПРЕЗЕНТАЦИЯ и видео
+                  </a>
                 </div>
-                
 
               </div>
             </div>
