@@ -41,7 +41,7 @@ class Gallery extends AppModel{
 		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
 			return false;
 		}
-		$this->resizeImg($path, $path_th, 182, 122, $ext);
+		$this->resizeImg($path, $path_th, 195, 169, $ext);
 		$this->data[$this->alias]['img'] = $fileName;
 		return true;
 	}

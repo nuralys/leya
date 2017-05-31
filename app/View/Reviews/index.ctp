@@ -1,7 +1,7 @@
 <div class="content-title">
-	Отзывы
+	<?=__('Отзывы')?>
 	<a href="" class="add-review">
-		Оставить отзыв
+		<?=__('Оставить отзыв')?>
 	</a>
 </div>	
 <ul class="reviews-list">
@@ -15,9 +15,7 @@
 				<?php echo $item['Review']['body'] ?>
 			</div>
 			<div class="reviews-item__bottom">
-				<div class="reviews-img">
-					<img src="img/reviews.jpg">
-				</div>
+				
 				<div class="reviews-info-chel">
 					<div class="reviews-name">	
 					<?php echo $item['Review']['name'] ?>

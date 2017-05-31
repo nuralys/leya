@@ -57,10 +57,13 @@ class PlansController extends AppController{
 		$this->set(compact('data'));
 	}
 
-	public function admin_add(){
+	public function admin_add($id = null){
 		$this->Plan->Project->locale = Configure::read('Config.language');
 		$this->Plan->Project->bindTranslation(array('title' => 'titleTranslation'));
-		$projects = $this->Plan->Project->find('list');
+		$blocks = $this->Plan->Block->find('all', array(
+			'conditions' => array('Block.project_id' => $id),
+			'recursive' => -1
+		));
 			// debug($projects);
 			// die;
 		if($this->request->is('post')){
@@ -89,7 +92,7 @@ class PlansController extends AppController{
 			}
 
 		}
-		$this->set(compact('projects'));
+		$this->set(compact('blocks'));
 	}
 
 	public function admin_edit($id){
@@ -169,6 +172,74 @@ class PlansController extends AppController{
 		$meta['keywords'] = $post['Plan']['keywords'];
 		$meta['description'] = $post['Plan']['description'];
 		$this->set(compact('post', '','title_for_layout' ,'meta'));
+	}
+
+	public function plan($project_id, $block=null){
+		// if(is_null($project_id) || !(int)$project_id || !$this->Project->exists($project_id)){
+		// 	throw new NotFoundException('Такой страницы нет...');
+		// }
+		// $this->Plan->locale = false;
+		// // $this->Block->locale = false;
+		// $this->Project->Block->locale = false;
+		// $this->Project->Plan->locale = false;
+		// $this->Project->bindTranslation(array('title' => 'titleTranslation'));
+		// $data = $this->Plan->findById($project_id);
+		$block_id = 2;
+		// $plans = $this->Plan->Block->find('all', array(
+		// 	'conditions' => array('Block.id' => $block_id)
+		// ));
+		$plans = $this->Plan->find('all', array(
+			'conditions' => array(
+				array('Plan.project_id' => 1),
+				array('Plan.block_id' => 3)
+				)
+		));
+		debug($plans);
+		die;
+		//Определяем этажность
+		// $floors = $data['Apartment'];
+		// $floors_count = count($data['Apartment']);
+		// $count_floor = null;
+		// for($i=0; $i<$floors_count; $i++){
+		// 	if($floors[$i]['floor'] > $count_floor) {
+		// 		$count_floor = $floors[$i]['floor'];
+		// 	}
+		// }
+		// $o = 1;
+		// 		$count_rooms = array();
+		//  foreach ($data['Plan'] as $item){
+		// 	if($item['floor'] == 1 && $item['rooms'] != 0){
+		// 		// debug($item['rooms']);
+		// 		array_push($count_rooms, $item['rooms']);
+		// 	// $o++;
+		// 		$ua = array_unique($count_rooms);
+		// 	}
+		// }
+		// foreach($ua as $item){
+		// 	debug($item);
+		// }
+		// // debug($ua);
+		// die;
+		// debug($project_id);
+		// debug($data['Project']['floor']);
+		// die;
+		// if($block == null){
+
+		// }
+		// $count_rooms = array(); 
+		// 							foreach ($data['Plan'] as $item): 
+		// 								if($item['floor'] == 1 && $item['rooms'] != 0): 
+										
+		// 									 debug($item);
+		// 									// array_push($count_rooms, $item['rooms']);
+		// 									// $uniqa = array_unique($count_rooms);
+											
+		// 							 endif;
+		// 							 endforeach;
+									
+		// 							 die;
+
+		$this->set(compact('data', 'title_for_layout', 'meta'));
 	}
 
 }

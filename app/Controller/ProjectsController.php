@@ -129,9 +129,15 @@ class ProjectsController extends AppController{
 		$this->Project->locale = false;
 		// $this->Block->locale = false;
 		$this->Project->Block->locale = false;
+		$this->Project->Plan->locale = false;
 		// $this->Project->bindTranslation(array('title' => 'titleTranslation'));
 		$data = $this->Project->findById($project_id);
-		
+		$block_id = 2;
+		$plans = $this->Project->Block->find('all', array(
+			'conditions' => array('Block.id' => $block_id)
+		));
+		debug($plans);
+		die;
 		//Определяем этажность
 		// $floors = $data['Apartment'];
 		// $floors_count = count($data['Apartment']);
@@ -189,6 +195,26 @@ class ProjectsController extends AppController{
 		// die;
 		// $aside = $this->Project->find('all');
 		$title_for_layout = $data['Project']['title'];
+		// $meta['keywords'] = $post['Project']['keywords'];
+		// $meta['description'] = $post['Project']['description'];
+		$this->set(compact('data', 'title_for_layout' ,'meta'));
+	}
+
+	public function gallery($id){
+		// if(is_null($id) || !(int)$id || !$this->Project->exists($id)){
+		// 	throw new NotFoundException('Такой страницы нет...');
+		// }
+		// $this->Project->locale = Configure::read('Config.language');
+		// // $this->Project->locale = 'ru';
+		$this->Project->locale = false;
+		// $this->Project->bindTranslation(array('title' => 'titleTranslation'));
+		$data = $this->Project->findById($id);
+		// debug($data);
+		// die;
+		// $data = $this->Project->Gallery->find('all', array(
+		// 	'conditions' => array('')
+		// ));
+		// $title_for_layout = $data['Project']['title'];
 		// $meta['keywords'] = $post['Project']['keywords'];
 		// $meta['description'] = $post['Project']['description'];
 		$this->set(compact('data', 'title_for_layout' ,'meta'));

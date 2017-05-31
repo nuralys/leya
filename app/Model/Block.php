@@ -11,6 +11,9 @@ class Block extends AppModel{
 	        // ),
 	        'Apartment' => array(
 	        	'className' => 'Apartment'
+	        ),
+	        'Plan' => array(
+	        	'className' => 'Plan'
 	        )
 	    );
 
