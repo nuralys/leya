@@ -19,7 +19,7 @@
 	 <td>
 		<?= $item['Plan']['square']; ?>
 	 </td>
-	 <td><a href="/admin/partners/edit/<?=$item['Plan']['id']?>?lang=ru">Редактировать</a> |
+	 <td><a href="/admin/plans/edit/<?=$item['Plan']['id']?>?lang=ru">Редактировать</a> |
 <div class="news_del">	<?php echo $this->Form->postLink('Удалить', array('action' => 'admin_delete', $item['Plan']['id']), array('confirm' => 'Подтвердите удаление')); ?>
 			</div> 
 	</td>

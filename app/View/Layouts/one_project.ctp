@@ -80,8 +80,8 @@
 					<ul class="sibe-bar-list">
 						<li class="project"><a href="/<?=$lang?>projects/description/<?=$this->request->params['pass'][0]?>">О проекте</a></li>
 						<li class="raspolozhenie"><a href="/<?=$lang?>projects/location/<?=$this->request->params['pass'][0]?>">Расположение</a></li>
-						<li class="planirovka"><a href="/<?=$lang?>projects/plan/<?=$this->request->params['pass'][0]?>">Планировка</a></li>
-						<li class="gallery"> <a href="/<?=$lang?>projects//<?=$this->request->params['pass'][0]?>">Галерея</a></li>
+						<li class="planirovka"><a href="/<?=$lang?>plans/plan/<?=$this->request->params['pass'][0]?>">Планировка</a></li>
+						<li class="gallery"> <a href="/<?=$lang?>projects/gallery/<?=$this->request->params['pass'][0]?>">Галерея</a></li>
 						<li class="tehnologia"><a href="">Технологии</a></li>
 						<li class="sravnit"><a href="">Сравнить</a></li>
 						<li class="ostv-zaiavku"><a href="#footer" class=open_modal"">Оставить заявку</a></li>
