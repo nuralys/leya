@@ -213,10 +213,10 @@
                 </div>
                 <div class="card-item_mini-card-container h_height">
                   <div class="card-item_mini-card card-item_mini-card-preimushestvo">
-                    <a href="/<?=$lang?>reviews" class="link">Отзывы</a>
+                    <a href="/<?=$lang?>reviews" class="">Отзывы</a>
                   </div>
                   <div class="card-item_mini-card card-item_mini-card-prezintacia">
-                    <a href="/<?=$lang?>presentations" class="link">ПРЕЗЕНТАЦИЯ и видео</a>
+                    <a href="/<?=$lang?>presentations" class="">ПРЕЗЕНТАЦИЯ и видео</a>
                   </div>
                 </div>
                 

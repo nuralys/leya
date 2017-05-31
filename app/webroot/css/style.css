@@ -892,7 +892,8 @@ table {
   margin: 0 10px;
 }
 .vacancy-content {
-  overflow: hidden;
+    overflow: hidden;
+    margin-bottom: 35px;
 }
 table th {
   border: 1px solid #d1d1d1;
@@ -1100,6 +1101,9 @@ table tr:nth-child(odd) td {
 .breadcrumbs li a {
   color: #474747;
   text-decoration: none;
+}
+.breadcrumbs li a:hover{
+  text-decoration: underline;
 }
 .breadcrumbs li a:after {
   content: '/';
@@ -3386,8 +3390,105 @@ a.ui-button:active .var-link:before,
   display:block;
 }
 
+.modal_div {
+    width: 435px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    right: 0;
+    height: 455px;
+    top: 0;
+    display: none;
+    opacity: 0;
+    position: fixed;
+    margin: auto;
+    z-index: 1001;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: auto;
+    padding: 37px 37px;
+}
+.modal_div form {
+  margin: 0;
+}
+.modal-title {
+    font-size: 20px;
+    color: #000;
+    padding-bottom: 15px;
+    padding-top: 0;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;                                                                                                                          
+}
+.modal-input__container {
+    margin-bottom: 5px;
+}
+.modal-input__container input:focus,.modal-input__container textarea:focus  {
+    border: 2px solid #c32328;
+    outline: none;
+    color:#c32328;
+}
+.modal_close {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 8040;
+  background-color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-image: url(../img/close.svg);
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.17);
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.17);
+  -o-background-size: 10px;
+  background-size: 10px;
+  background-position: top 5px center;
+}
+.modal-button-container {
+    text-align: center;
+}
+#overlay {
+  z-index: 1000;
+  position: fixed;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background: #000;
+  display: none;
+}
 
-
+.modal-input__container input {
+    width: 100%;
+    outline: none;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-indent: 15px;
+}
+.modal-input__container textarea {
+    width: 101%;
+    resize: none;
+    text-indent: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 23px;
+    height: 100px;
+}
+.modal-button-container {
+    text-align: center;
+}
+.modal-button.button {
+    background: #c32328;
+    text-transform: uppercase;
+    padding: 10px 55px;
+}
 @media screen and (max-height: 800px) {
   .card-item {
     height: 330px;
@@ -3434,10 +3535,13 @@ a.ui-button:active .var-link:before,
   .content-compani-bottom {
     padding: 25px 35px 25px;
   }
-  .title {
-      font-size: 20px;
-      margin-bottom: 15px;
-  }
+  .breadcrumbs {
+    margin-bottom: 15px;
+}
+.title {
+    font-size: 22px;
+    margin-bottom: 15px;
+} 
   p {
     font-size: 14px!important;
     line-height: 1.5!important;
@@ -3471,5 +3575,8 @@ a.ui-button:active .var-link:before,
   .big-cr-container {
       width: 1100px;
       padding: 25px 30px;
+  }
+  .container .cr {
+      width: 1100px;
   }
 }

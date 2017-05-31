@@ -50,6 +50,8 @@
 					</ul>
 				</div>
 			</div>
+			<div class="header-fix">
+			<div class="header-bottom-height"></div>
 			<div class="header-bottom">
 				<div class="cr">
 					<a href="/<?=$lang?>" class="header-logo">
@@ -68,6 +70,7 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		</header> 
 		<div class="container">
 			<div class="cr">
@@ -84,7 +87,7 @@
 						<li class="gallery"> <a href="/<?=$lang?>projects//<?=$this->request->params['pass'][0]?>">Галерея</a></li>
 						<li class="tehnologia"><a href="">Технологии</a></li>
 						<li class="sravnit"><a href="">Сравнить</a></li>
-						<li class="ostv-zaiavku"><a href="#footer" class=open_modal"">Оставить заявку</a></li>
+						<li class="ostv-zaiavku"><a href="#modal1" class="open_modal">Оставить заявку</a></li>
 					</ul>
 				</div>
 				<div class="content-compani-container">
@@ -92,9 +95,38 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
+
 	<footer class="footer">		
 	</footer>
+	<div id="modal1" class="modal_div registar-zav"> <!-- скрытый див с уникальным id = modal1 -->
+	<span class="modal_close"></span>
+		<div class="modal-title">Оставить заявку</div>
+
+		<form  action="" method="" >
+			<div class="form-modal">
+				 <div class="modal-input__container "> 
+					    <input type="text" name="" required="required" placeholder="Имя:" class="modal-input ">
+				 </div>    
+				 <div class="modal-input__container "> 
+					    <input type="text" name="" required="required" placeholder="Номер телефона: " class="modal-input ">
+				 </div>
+				 <div class="modal-input__container "> 
+					    <input type="text" name="" required="required" placeholder="E-mail:" class="modal-input ">
+				 </div> 
+				 <div class="modal-input__container "> 
+					   <textarea placeholder="Текст"  class="modal-input " ></textarea>
+				 </div>
+			</div> 
+			 <div class="modal-button-container">
+			 	<button class="modal-button button">
+			 		Отправить
+			 	</button>
+			 </div>
+		</form>
+	</div>	
+	<div id="overlay"></div>
 	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script src="/js/jquery.fullPage.min.js"></script>
 	<script src="/js/jquery.fancybox.pack.js" type="text/javascript"></script>
