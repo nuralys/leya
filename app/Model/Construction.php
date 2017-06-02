@@ -3,7 +3,7 @@
 class Construction extends AppModel {
 	public $actsAs = array(
 		'Translate' => array(
-			'title',
+			'name',
             'body',
             'keywords',
             'description'
@@ -22,7 +22,11 @@ class Construction extends AppModel {
 	    );
 
 	public $validate = array(
-		'title' => array(
+		'name' => array(
+			'rule' => 'notEmpty',
+			'message' => 'Введите название товара'
+		),
+		'body' => array(
 			'rule' => 'notEmpty',
 			'message' => 'Введите название товара'
 		),

@@ -19,26 +19,12 @@ class ConstructionsController extends AppController{
 	}
 
 	public function admin_index(){
-		$this->Construction->locale = array('ru', 'kz');
-		$this->Construction->bindTranslation(array('title' => 'titleTranslation'));
+		$this->Construction->locale = 'ru';
+		$this->Construction->bindTranslation(array('name' => 'titleTranslation'));
 		$data = $this->Construction->find('all');
 		
-		if($this->request->is('post')){
-			$anons = $this->request->data['Construction']['anons'];
-			$news_id = $this->request->data['Construction']['news_id'];
-			// debug($news_id);
-			// die;
-
-			// debug($news_id);
-			$setAnons = $this->_anons($news_id, $anons);
-			if($setAnons){
-				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
-				// debug($data);
-				return $this->redirect($this->referer());
-			}else{
-				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
-			}
-		}
+		// debug($data);
+		
 		$this->set(compact('data'));
 	}
 
@@ -139,7 +125,7 @@ class ConstructionsController extends AppController{
 			throw new NotFoundException('Такой страницы нет...');
 		}
 		$this->Construction->locale = Configure::read('Config.language');
-		$this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		// $this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
 		$data = $this->Construction->findById($id);
 		$list = $this->Construction->find('list', array(
 			'conditions' => array('Construction.id !=' => $id)
@@ -147,7 +133,7 @@ class ConstructionsController extends AppController{
 		$months = array('1'=>'Январь', '2'=>'Февраль', '3'=>'Март', '4'=>'Апрель','5'=>'Май','6'=>'Июнь','7'=>'Июль','8'=>'Август','9'=>'Сентябрь','10'=>'Октябрь','11'=>'Ноябрь','12'=>'Декабрь');
 		// debug($data);die;
 	
-		$title_for_layout = $data['Construction']['title'];
+		$title_for_layout = $data['Construction']['name'];
 		$meta['keywords'] = $data['Construction']['keywords'];
 		$meta['description'] = $data['Construction']['description'];
 		$this->set(compact('data', '','title_for_layout' ,'meta', 'list', 'months'));

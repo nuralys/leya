@@ -71,6 +71,7 @@
 			</div>		
 		</header> 
 		<div class="container">
+		<?php //debug($list); ?>
 			<div class="cr">
 				<div class="sibe-bar ">
 					<div class="sibe-bar__title">
@@ -109,28 +110,33 @@
 							</div>	
 						</div>
 					<?php endif ?>
+
+					<!-- Начинается фото отчет -->
+					<?php $years = array(); ?>
+					<?php
+					//Собираем все года какие есть и оставляем уникальные
+						foreach($data['Report'] as $item){
+					
+							array_push($years, $this->Time->format($item['date'], '%Y', 'invalid'));
+							$uniqa = array_unique($years);
+						}
+					?>
+						<?php if(!empty($uniqa)): ?>
 						<div class="title">
 							Фото отчет
 						</div>
 
 						<div class="tab-container" >
 							<ul class="tab-container-nav">
-							<?php $years = array(); ?>
-							<?php
-							//Собираем все года какие есть и оставляем уникальные
-								foreach($data['Report'] as $item){
 							
-									array_push($years, $this->Time->format($item['date'], '%Y', 'invalid'));
-									$uniqa = array_unique($years);
-								}
-							?>
+							
 							<!-- Вывожу года -->
 							<?php foreach($uniqa as $item => $value): ?>
 								<li <?php if($item == 0) echo  'class="active"'; ?>><?php echo $value; ?></li>
 							<?php endforeach ?>
 							</ul>
 
-							<?php foreach($uniqa as $item => $year): ?>
+							<!-- #1 --><?php foreach($uniqa as $item => $year): ?>
 							<div class="year-tabs-item  <?php if($item == 0) echo  'active'; ?>">
 								<div class="tab-month">
 								<ul class="tab-month-menu-nav">
@@ -182,7 +188,8 @@
 									
 								</div>
 							</div>
-							<?php endforeach ?>
+							<!-- #1 --><?php endforeach ?>
+						<?php endif ?>
 						</div>
 
 						<div class="title">

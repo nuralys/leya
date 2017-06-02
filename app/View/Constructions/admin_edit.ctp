@@ -4,7 +4,7 @@
 	</div>
 <?php
 echo $this->Form->create('Construction', array('type' => 'file'));
-echo $this->Form->input('title', array('label' => 'Название:'));
+echo $this->Form->input('name', array('label' => 'Название:'));
 echo $this->Form->input('body', array('label' => 'Текст:', 'id' => 'editor'));
 echo $this->Form->input('keywords', array('label' => 'Ключевые слова:'));
 echo $this->Form->input('description', array('label' => 'Описание:'));
