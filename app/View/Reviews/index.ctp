@@ -1,6 +1,6 @@
 <div class="content-title">
 	<?=__('Отзывы')?>
-	<a href="" class="add-review">
+	<a href="#modal1" class="add-review">
 		<?=__('Оставить отзыв')?>
 	</a>
 </div>	
@@ -10,7 +10,7 @@
 		<div class="reviews-item">
 			<div class="reviews-item__top">
 				<div class="reviews-date">
-				<?php echo $this->Time->format($item['Review']['date'], '%d.%m.%Y', 'invalid'); ?>
+				<?php echo $this->Time->format($item['Review']['created'], '%d.%m.%Y', 'invalid'); ?>
 				</div>
 				<?php echo $item['Review']['body'] ?>
 			</div>

@@ -141,11 +141,16 @@ class ConstructionsController extends AppController{
 		$this->Construction->locale = Configure::read('Config.language');
 		$this->Construction->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
 		$data = $this->Construction->findById($id);
+		$list = $this->Construction->find('list', array(
+			'conditions' => array('Construction.id !=' => $id)
+		));
+		$months = array('1'=>'Январь', '2'=>'Февраль', '3'=>'Март', '4'=>'Апрель','5'=>'Май','6'=>'Июнь','7'=>'Июль','8'=>'Август','9'=>'Сентябрь','10'=>'Октябрь','11'=>'Ноябрь','12'=>'Декабрь');
+		// debug($data);die;
 	
 		$title_for_layout = $data['Construction']['title'];
 		$meta['keywords'] = $data['Construction']['keywords'];
 		$meta['description'] = $data['Construction']['description'];
-		$this->set(compact('data', '','title_for_layout' ,'meta'));
+		$this->set(compact('data', '','title_for_layout' ,'meta', 'list', 'months'));
 	}
 
 }
