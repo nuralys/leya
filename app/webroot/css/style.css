@@ -429,11 +429,14 @@ body {
   justify-content: center;
 }
 .card-item_mini-card.slovo {
-  background-image: url(../img/slovo.png);
-  font-size: 14px;
-  color: #fff;
-  text-decoration: underline;
-  text-transform: uppercase;
+    background-image: url(../img/slovo.png);
+    font-size: 16px;
+    color: #fff;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #474747;
+    text-decoration: none;
+    font-weight: bold;
 }
 .card-item_mini-card-prezintacia {
   background-image: url(../img/prezintacia.jpg);
@@ -2902,9 +2905,12 @@ display: inline-block;
   cursor: pointer;
 }
 
-.tab-month-menu-na li:hover {
+.tab-month-menu-nav li:hover {
   background-color: #c32328;
   color: #fff;
+}
+.card-item_mini-card.slovo div {
+    margin-right: 90px;
 }
 .foto-otchet {
   padding: 0;
