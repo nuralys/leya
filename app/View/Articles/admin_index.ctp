@@ -6,7 +6,7 @@
 <?php foreach ($data as $item) : ?>
 	<tr>
 	<td>
-<?php echo $item['Construction']['title'] ?>
+<?php echo $item['Construction']['name'] ?>
 	</td>
 	<td><?php echo $this->Time->format($item['Article']['date'], '%d.%m.%Y', 'invalid'); ?></td>
 	<td>

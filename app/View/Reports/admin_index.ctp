@@ -5,9 +5,11 @@
 
 	<tr>
 	<td><img src="/img/reports/thumbs/<?=$item['Report']['img']?>"></td>
-		<td><?=$item['Construction']['title']?></td> 
+		<td><?=$item['Construction']['name']?></td> 
 		<td><a href="/admin/reports/edit/<?=$item['Report']['id']?>?lang=ru"> рус</a> | 
-		<a href="/admin/reports/edit/<?=$item['Report']['id']?>?lang=en"> eng</a></td>
+		<a href="/admin/reports/edit/<?=$item['Report']['id']?>?lang=en"> eng</a>| 
+		<a href="/admin/reports/edit/<?=$item['Report']['id']?>?lang=kz"> каз</a>
+		</td>
 		<td><?php echo $this->Form->postLink('Удалить', array('action' => 'admin_delete', $item['Report']['id']), array('confirm' => 'Подтвердите удаление')); ?></td>
 	</tr>
 	<?php endforeach; ?>
