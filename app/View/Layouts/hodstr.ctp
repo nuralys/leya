@@ -166,9 +166,9 @@
 											<?php if($key == date("n", strtotime($report['date'])) && $this->Time->format($report['date'], '%Y', 'invalid') == $year): ?>
 											<li>
 												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
+													<a href="/img/reports/thumbs/<?=$report['img']?>" class="foto-otchet-item__img fancybox">
 														<img src="/img/reports/thumbs/<?=$report['img']?>">
-													</div>
+													</a>
 													<div class="foto-otchet-item__bottom">
 													<div class="foto-otchet-item__date">
 													<?php echo $this->Time->format($report['date'], '%d.%m.%Y', 'invalid'); ?>
