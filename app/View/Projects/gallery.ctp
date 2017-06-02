@@ -1,5 +1,5 @@
-<div class="content-compani-top">
-	<div class="title">
+
+	<div class="content-title">
 		<?=__('Галерея')?>
 	</div>
 	<ul class="gallery-list">
@@ -13,4 +13,3 @@
 		<?php endforeach ?>
 		
 	</ul>
-</div>

@@ -1142,6 +1142,17 @@ table tr:nth-child(odd) td {
   vertical-align: top;
   display: inline-block;
 }
+.contact-item {
+    margin-right: 0;
+    font-size: 16px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    margin-bottom: 40px;
+    background: #fff;
+}
 .prezent-card {
   margin-right: 30px;
   -webkit-box-shadow: 0 13px 27px #c1c0c0;
@@ -1257,9 +1268,10 @@ ul {
   margin-bottom: 40px;
 }
 .gallery-item {
-  margin-right: 40px;
-  overflow: hidden;
-  display: block;
+    margin-right: 40px;
+    overflow: hidden;
+    display: block;
+    border: 4px solid #fff;
 }
 .gallery-item img {
   width: 100%;
@@ -3409,8 +3421,11 @@ a.ui-button:active .var-link:before,
 .com-item__info--active{
   border:1px solid #ccc;
 } 
-.p-photos{
-  display:none;
+.p-photos {
+    display: none;
+    height: 221px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .p-photos--active{
   display:block;
@@ -3612,8 +3627,9 @@ a.ui-button:active .var-link:before,
     margin-bottom: 15px;
   }
   .content-title {
-    font-size: 24px;
-    margin-bottom: 25px;
+      font-size: 24px;
+      margin-bottom: 17px;
+      line-height: 1.3;
   }
   .content-top {
     padding: 25px 30px 0;
