@@ -7,9 +7,7 @@
 <?php foreach ($data as $item) : ?>
 	<tr>
 	<td>
-	<?php  foreach($item['titleTranslation'] as $title): ?>
-		<?= $title['locale'] .': '. $title['content']; ?><br>
-	<?php endforeach; ?>
+	<?=$item['Construction']['name']?>
 	</td>
 	<td>
 	<a href="/admin/constructions/edit/<?=$item['Construction']['id']?>?lang=ru"> рус</a> |

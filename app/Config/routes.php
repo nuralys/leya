@@ -16,6 +16,10 @@
 		array('controller' => 'projects', 'action' => 'description'),
 		array('language' => '[a-z]{2}')
 	);
+	Router::connect('/:language/constructions/view/*', 
+		array('controller' => 'constructions', 'action' => 'view'),
+		array('language' => '[a-z]{2}')
+	);
 	Router::connect('/:language/projects/location/*', 
 		array('controller' => 'projects', 'action' => 'location'),
 		array('language' => '[a-z]{2}')
