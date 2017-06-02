@@ -1,19 +1,26 @@
-<?php
-class Report extends AppModel{
+<?php 
+
+class Advantage extends AppModel{
 	public $actsAs = array(
 		'Translate' => array(
+			'title',
 			'body'
 			)
 		);
 
-	public $belongsTo = 'Construction';
-	// public $translateModel = 'ProductI18n';
+	public $belongsTo = 'Project';
+
 	public $validate = array(
+		'title' => array(
+			'rule' => 'notEmpty',
+			'message' => 'Введите название'
+		),
 		'body' => array(
 			'rule' => 'notEmpty',
 			'message' => 'Введите текст'
 		),
 		'img' => array(
+			
 			'uploadError' => array(
 				'rule' => 'uploadError',
 				'message' => 'Ошибка загрузки картинки',
@@ -43,19 +50,19 @@ class Report extends AppModel{
 		}
 		$ext = strtolower(preg_replace("#.+\.([a-z]+)$#", "$1", $file['img']['name']));
 		$fileName = $this->genNameFile($ext);
-		$path = WWW_ROOT . 'img/reports/' . $fileName;
-		$path_th = WWW_ROOT . 'img/reports/thumbs/' . $fileName;
+		$path = WWW_ROOT . 'img/advantages/' . $fileName;
+		$path_th = WWW_ROOT . 'img/advantages/thumbs/' . $fileName;
 		if(!move_uploaded_file($file['img']['tmp_name'], $path)){
 			return false;
 		}
-		$this->resizeImg($path, $path_th, 184, 124, $ext);
+		$this->resizeImg($path, $path_th, 77, 54, $ext);
 		$this->data[$this->alias]['img'] = $fileName;
 		return true;
 	}
 
 	public function genNameFile($ext){
 		$name = md5(microtime()) . ".{$ext}";
-		if(is_file(WWW_ROOT . 'img/reports/' . $name)){
+		if(is_file(WWW_ROOT . 'img/advantages/' . $name)){
 			$name = $this->genNameFile($ext);
 		}
 		return $name;

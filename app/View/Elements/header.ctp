@@ -1,11 +1,9 @@
 <ul class="menu">
 <li>
-<a >О компании</a>
+<a href="/<?=$lang?>page/about">О компании</a>
 <div class="sub-menu-container">
 	<ul class="sub-menu">
-		<li>
-			<a href="/<?=$lang?>page/about">О компании</a>
-		</li>
+		
 		<li>
 			<a href="/<?=$lang?>page/word-from-principle">Слово первого руководителя</a>
 		</li>
@@ -31,43 +29,29 @@
 	<li><a href="/<?=$lang?>projects">Проекты</a>
 	<div class="sub-menu-container">
 		<ul class="sub-menu">
-			<li><a href="/<?=$lang?>projects">Проекты</a></li>
+			
 			<li>
-				<a href="">Реализованные</a>
+				<a href="/<?=$lang?>page/completed-projects">Реализованные</a>
 			</li>
 			<li>
-				<a href="">На стадии релизации</a>
+				<a href="/projects?on_stage=1">На стадии релизации</a>
 				<div class="sub-menu-child">
 					<ul class="sub-menu-child-list">
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
-						<li>
-						<a href=""> test</a>
-						</li>
+						<?php foreach($projects_on_stage_menu as $item => $value): ?>
+							<li><a href="/<?=$lang?>projects/description/<?=$item?>"><?=$value?></a></li>
+						<?php endforeach ?>
 					</ul>
 				</div>
 			</li>
 			<li>
-				<a href="">Зарубежные проекты</a>
+				<a href="/projects?foreign_project=1">Зарубежные проекты</a>
+				<div class="sub-menu-child">
+					<ul class="sub-menu-child-list">
+						<?php foreach($projects_foreign_menu as $item => $value): ?>
+							<li><a href="/<?=$lang?>projects/description/<?=$item?>"><?=$value?></a></li>
+						<?php endforeach ?>
+					</ul>
+				</div>
 			</li>
 		</ul>
 	</div>
@@ -75,16 +59,10 @@
 	<li><a href="/<?=$lang?>constructions">Ход строительства</a>
 	<div class="sub-menu-container">
 		<ul class="sub-menu">
-			<li><a href="">Проекты</a></li>
-			<li>
-				<a href="">Почему стоит работать у нас</a>
-			</li>
-			<li>
-				<a href="">Текущие вакансии </a>
-			</li>
-			<li>
-				<a href="">Оставить заявку</a>
-			</li>
+		<?php foreach($constructions_menu as $item => $value): ?>
+			<li><a href="/<?=$lang?>constructions/view/<?=$item?>"><?=$value?></a></li>
+		<?php endforeach ?>
+			
 		</ul>
 	</div>
 	</li>
@@ -92,16 +70,14 @@
 	<li><a href="/<?=$lang?>vacancies">Вакансии</a>
 	<div class="sub-menu-container">
 		<ul class="sub-menu">
-			<li><a href="/<?=$lang?>projects">Проекты</a></li>
 			<li>
-				<a href="">Почему стоит работать у нас</a>
+				<a href="/<?=$lang?>page/working-with-us">Почему стоит работать у нас</a>
 			</li>
 			<li>
-				<a href="">Текущие вакансии 
-</a>
+				<a href="/<?=$lang?>vacancies">Текущие вакансии </a>
 			</li>
 			<li>
-				<a href="">Оставить заявку</a>
+				<a href="/<?=$lang?>">Оставить заявку</a>
 			</li>
 		</ul>
 	</div>

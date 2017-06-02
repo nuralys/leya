@@ -10,11 +10,30 @@ class ReviewsController extends AppController{
 		$this->Review->locale = Configure::read('Config.language');
 		$this->Review->bindTranslation(array('name' => 'nameTranslation'));
 		$data = $this->Review->find('all', array(
+			'conditions' => array('Review.active' => 1),
 			'order' => array('Review.id' => 'desc')
 		));
 		// debug($data);
 		$title_for_layout = __('Отзывы');
 		$this->set(compact('title_for_layout', 'data'));
+	}
+
+	public function add(){
+		if($this->request->is('post')){
+			$this->Review->create();
+			$data = $this->request->data['Review'];
+
+			// debug($data);
+			// die;
+			$this->Review->locale = 'ru';
+			if($this->Review->save($data)){
+				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				// debug($data);
+				return $this->redirect($this->referer());
+			}else{
+				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+			}
+		}
 	}
 
 

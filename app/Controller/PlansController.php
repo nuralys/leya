@@ -187,6 +187,12 @@ class PlansController extends AppController{
 		//debug($this->request->params['pass'][1]);die;
 		// $block = $block;
 		// $block = substr($block, -1, 1);
+		$this->Plan->Project->locale = Configure::read('Config.language');
+		$this->Plan->Project->bindTranslation(array('title' => 'titleTranslation'));
+		$project_name = $this->Plan->Project->findById($project_id);
+		$project_name = $project_name['Project']['title'];
+		// debug($project_name);die;
+
 		$block_id = null;
 		if($block == null){
 			$sql = $this->Plan->Block->find('first', array(
@@ -238,7 +244,7 @@ class PlansController extends AppController{
 
 		// die;
 		//$data = $data[0];
-		// debug($blocks_list);
+		// debug($data);
 		// die;
 		//Определяем этажность
 		// $floors = $data['Apartment'];
@@ -283,7 +289,7 @@ class PlansController extends AppController{
 									
 		// 							 die;
 
-		$this->set(compact('data', 'title_for_layout', 'meta', 'blocks_list', 'block_id'));
+		$this->set(compact('data', 'title_for_layout', 'meta', 'blocks_list', 'block_id', 'project_name'));
 	}
 
 }

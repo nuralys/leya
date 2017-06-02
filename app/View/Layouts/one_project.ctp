@@ -76,21 +76,25 @@
 			<div class="cr">
 				<div class="sibe-bar">
 					<div class="sibe-bar__title">
-						Жилой Комплекс
-						<span>лея -1</span>
+					<?php if(isset($data['Project']['title'])){
+echo $data['Project']['title'];
+						}else{
+							echo $project_name;
+							} ?>
 					</div>
 					
 					<ul class="sibe-bar-list">
-						<li class="project"><a href="/<?=$lang?>projects/description/<?=$this->request->params['pass'][0]?>">О проекте</a></li>
-						<li class="raspolozhenie"><a href="/<?=$lang?>projects/location/<?=$this->request->params['pass'][0]?>">Расположение</a></li>
-						<li class="planirovka"><a href="/<?=$lang?>plans/plan/<?=$this->request->params['pass'][0]?>">Планировка</a></li>
-						<li class="gallery"> <a href="/<?=$lang?>projects/gallery/<?=$this->request->params['pass'][0]?>">Галерея</a></li>
-						<li class="tehnologia"><a href="">Технологии</a></li>
-						<li class="sravnit"><a href="">Сравнить</a></li>
-						<li class="ostv-zaiavku"><a href="#modal1" class="open_modal">Оставить заявку</a></li>
+						<li class="project"><a href="/<?=$lang?>projects/description/<?=$this->request->params['pass'][0]?>"><?=__('О проекте')?></a></li>
+						<li class="raspolozhenie"><a href="/<?=$lang?>projects/location/<?=$this->request->params['pass'][0]?>"><?=__('Расположение')?></a></li>
+						<li class="planirovka"><a href="/<?=$lang?>plans/plan/<?=$this->request->params['pass'][0]?>"><?=__('Планировка')?></a></li>
+						<li class="gallery"> <a href="/<?=$lang?>projects/gallery/<?=$this->request->params['pass'][0]?>"><?=__('Галерея')?></a></li>
+						<li class="tehnologia"><a href=""><?=__('Технологии')?></a></li>
+						<li class="sravnit"><a href=""><?=__('Сравнить')?></a></li>
+						<li class="ostv-zaiavku"><a href="#modal1" class="open_modal"><?=__('Оставить заявку')?></a></li>
 					</ul>
 				</div>
 				<div class="content-compani-container">
+				<?php //debug($data);die; ?>
 					<?php echo $this->fetch('content'); ?>
 				</div>
 			</div>
@@ -102,26 +106,27 @@
 	</footer>
 	<div id="modal1" class="modal_div registar-zav"> <!-- скрытый див с уникальным id = modal1 -->
 	<span class="modal_close"></span>
-		<div class="modal-title">Оставить заявку</div>
+		<div class="modal-title"><?=__('Оставить заявку')?></div>
 
-		<form  action="" method="" >
+		<form  action="/requests/add" method="POST" >
 			<div class="form-modal">
 				 <div class="modal-input__container "> 
-					    <input type="text" name="" required="required" placeholder="Имя:" class="modal-input ">
+					    <input type="text" name="data[Request][fio]" placeholder="<?=__('Имя')?>:" class="modal-input ">
 				 </div>    
 				 <div class="modal-input__container "> 
-					    <input type="text" name="" required="required" placeholder="Номер телефона: " class="modal-input ">
+					    <input type="text" name="data[Request][phone]" required="required" placeholder="<?=__('Номер телефона')?>: " class="modal-input ">
 				 </div>
 				 <div class="modal-input__container "> 
-					    <input type="text" name="" required="required" placeholder="E-mail:" class="modal-input ">
+					    <input type="text" name="data[Request][email]" placeholder="E-mail:" class="modal-input ">
 				 </div> 
 				 <div class="modal-input__container "> 
-					   <textarea placeholder="Текст"  class="modal-input " ></textarea>
+					   <textarea placeholder="<?=__('Текст')?>"  class="modal-input" name="data[Request][body]"></textarea>
 				 </div>
+				 <input type="hidden" name="data[Request][project]" value="<?php echo $data['Project']['title']; ?>">
 			</div> 
 			 <div class="modal-button-container">
-			 	<button class="modal-button button">
-			 		Отправить
+			 	<button class="modal-button button" type="submit">
+			 		<?=__('Отправить')?>
 			 	</button>
 			 </div>
 		</form>

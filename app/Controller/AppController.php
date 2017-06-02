@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller', 'CakeEmail', 'Network/Email');
  */
 class AppController extends Controller {
 
-    public $uses = array('App');
+    public $uses = array('App', 'Construction', 'Project');
 
 	public $components = array('DebugKit.Toolbar', 'Cookie', 'Session', 'Auth' => array(
             'loginRedirect' => '/admin/',
@@ -97,9 +97,28 @@ class AppController extends Controller {
         }else{
             Configure::write('Config.language', 'ru');
         }
+
+        //for menu
+        $this->Construction->locale = Configure::read('Config.language');
+        $this->Construction->bindTranslation(array('title' => 'titleTranslation'));
+        $constructions_menu = $this->Construction->find('list');
+
+        $this->Project->locale = Configure::read('Config.language');
+        $this->Project->bindTranslation(array('title' => 'titleTranslation'));
+        $projects_on_stage_menu = $this->Project->find('list', array(
+            'conditions' => array('Project.on_stage' => 1)
+        ));
+         $projects_foreign_menu = $this->Project->find('list', array(
+            'conditions' => array('Project.foreign_project' => 1)
+        ));
+        // debug($projects_on_stage_menu);
+        // die;
+
+        // debug($constructions);
+        // die;
         
         $lang = ($this->params['language']) ? $this->params['language'] . '/' : '';
-        $this->set(compact('admin', 'lang', 'services'));
+        $this->set(compact('admin', 'lang', 'services', 'constructions_menu', 'projects_on_stage_menu', 'projects_foreign_menu'));
 
     }
 

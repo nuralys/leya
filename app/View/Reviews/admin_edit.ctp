@@ -7,7 +7,9 @@ echo $this->Form->create('Review', array('type' => 'file'));
 echo $this->Form->input('name', array('label' => 'ФИО:'));
 echo $this->Form->input('position', array('label' => 'Должность:'));
 echo $this->Form->input('body', array('label' => 'Текст:', 'id' => 'editor'));
+echo $this->Form->input('active', array('label' => 'Опубликовано:', 'type' => 'checkbox'));
 ?>
+
 <div class="edit_bot">
 	<div class="bot_r">
 	<?

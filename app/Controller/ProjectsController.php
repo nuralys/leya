@@ -96,16 +96,29 @@ class ProjectsController extends AppController{
 	}
 
 	public function index(){
-		// $this->layout = 'projects';
 		$this->Project->locale = Configure::read('Config.language');
 		$this->Project->bindTranslation(array('title' => 'titleTranslation'));
-		$data = $this->Project->find('all');
-		$aside = $this->Project->find('all');
-		$title_for_layout = __('Проект');
-		// debug($data);
+
+
+		if(isset($this->request->query['on_stage'])){
+		
+			$data = $this->Project->find('all', array(
+				'conditions' => array('Project.on_stage' => 1)
+			));
+		}
+
+		if(isset($this->request->query['foreign_project'])){
+			$data = $this->Project->find('all', array(
+				'conditions' => array('Project.foreign_project' => 1)
+			));
+		}
+		if(!isset($this->request->query['foreign_project']) && !isset($this->request->query['on_stage'])){
+			$data = $this->Project->find('all');
+		}
+		$title_for_layout = __('Проекты');
 		// $meta['keywords'] = $post['Project']['keywords'];
 		// $meta['description'] = $post['Project']['description'];
-		$this->set(compact('data', 'aside', 'title_for_layout' ,'meta'));
+		$this->set(compact('data', 'title_for_layout' ,'meta'));
 	}
 
 	public function view($id){
@@ -191,6 +204,8 @@ class ProjectsController extends AppController{
 		$this->Project->locale = Configure::read('Config.language');
 		$this->Project->bindTranslation(array('title' => 'titleTranslation'));
 		$data = $this->Project->findById($id);
+
+		// $advantages = $this->Project->Ad
 		// debug($data);
 		// die;
 		// $aside = $this->Project->find('all');

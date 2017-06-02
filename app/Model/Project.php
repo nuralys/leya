@@ -26,6 +26,9 @@ class Project extends AppModel {
 	        ),
 	        'Plan' => array(
 	        	'className' => 'Plan'
+	        ),
+	        'Advantage' => array(
+	        	'className' => 'Advantage'
 	        )
 	    );
 

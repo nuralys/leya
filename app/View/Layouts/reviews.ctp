@@ -79,6 +79,33 @@
 		<footer class="footer">
 			
 		</footer>
+		<div id="modal1" class="modal_div registar-zav"> <!-- скрытый див с уникальным id = modal1 -->
+	<span class="modal_close"></span>
+		<div class="modal-title"><?=__('Оставить отзыв')?></div>
+
+		<form  action="/reviews/add" method="POST" >
+			<div class="form-modal">
+				 <div class="modal-input__container "> 
+					    <input type="text" name="data[Review][name]" required="required" placeholder="<?=__('фИО')?>:" class="modal-input ">
+				 </div>    
+				 <div class="modal-input__container "> 
+					    <input type="text" name="data[Review][position]"  placeholder="<?=__('Место работы')?>: " class="modal-input ">
+				 </div>
+				 <div class="modal-input__container "> 
+					    <input type="text" name="data[Review][email]" placeholder="E-mail:" class="modal-input ">
+				 </div> 
+				 <div class="modal-input__container "> 
+					   <textarea placeholder="<?=__('Текст')?>" required="required" class="modal-input" name="data[Review][body]"></textarea>
+				 </div>
+			</div> 
+			 <div class="modal-button-container">
+			 	<button class="modal-button button" type="submit">
+			 		<?=__('Отправить')?>
+			 	</button>
+			 </div>
+		</form>
+	</div>	
+	<div id="overlay"></div>
 		<script src="/js/jquery.js" type="text/javascript"></script>
 		<script src="/js/jquery.fullPage.min.js"></script>
 

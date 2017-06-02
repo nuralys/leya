@@ -52,7 +52,7 @@
 				<div class="header-bottom-height"></div>
 				<div class="header-bottom">
 					<div class="cr">
-						<a href="" class="header-logo">
+						<a href="/<?=$lang?>" class="header-logo">
 							<img src="/img/logo.png" alt="">
 						</a>
 						<div class="searach-container">
@@ -74,12 +74,12 @@
 			<div class="cr">
 				<div class="sibe-bar ">
 					<div class="sibe-bar__title">
-						проекты
+						<?=__('Проекты')?>
 					</div>
 					<ul class="sibe-bar-list">
-						<li class="project"><a href="">ЖК “ЗА РЕКОЙ”</a></li>
-						<li class="project"><a href="">ЖК “ЗА РЕКОЙ” 2</a></li>
-						<li class="project"><a href="">ЖК “ЗА РЕКОЙ” 3</a></li>
+					<?php foreach($list as $key => $value): ?>
+						<li class="project"><a href="/<?=$lang?>constructions/view/<?=$key?>"><?php echo $value ?></a></li>
+					<?php endforeach ?>
 						
 					</ul>
 				</div>
@@ -112,358 +112,77 @@
 						<div class="title">
 							Фото отчет
 						</div>
-						<div class="tab-container" id="tab-year">
+
+						<div class="tab-container" >
 							<ul class="tab-container-nav">
-								<li><a href="#year2016">2016</a></li>
-								<li><a href="#year2017">2017</a></li>
+							<?php $years = array(); ?>
+							<?php
+							//Собираем все года какие есть и оставляем уникальные
+								foreach($data['Report'] as $item){
+							
+									array_push($years, $this->Time->format($item['date'], '%Y', 'invalid'));
+									$uniqa = array_unique($years);
+								}
+							?>
+							<!-- Вывожу года -->
+							<?php foreach($uniqa as $item => $value): ?>
+								<li <?php if($item == 0) echo  'class="active"'; ?>><?php echo $value; ?></li>
+							<?php endforeach ?>
 							</ul>
-							<div class="year-tabs-item" id="year2016">
-								<div id="tab-month">
+
+							<?php foreach($uniqa as $item => $year): ?>
+							<div class="year-tabs-item  <?php if($item == 0) echo  'active'; ?>">
+								<div class="tab-month">
 								<ul class="tab-month-menu-nav">
-									<li>
-										<a href="#m1">
-											Январь
-										</a>
+									<?php foreach($months as $key => $month_value): ?>
+									<li <?php if($key == 1) echo  'class="active"'; ?>>
+										
+											<?=$month_value?>
+									
 									</li>
-									<li>
-										<a href="#m2">
-											Февраль
-										</a>
-									</li>
-									<li>
-										<a href="#m3">
-											Март
-										</a>
-									</li>
-									<li>
-										<a href="#m4">
-											Апрель
-										</a>
-									</li>
-									<li>
-										<a href="#m5">
-											Май
-										</a>
-									</li>
-									<li>
-										<a href="#m6">
-											Июнь
-										</a>
-									</li>
-									<li>
-										<a href="#m7">
-											Июль
-										</a>
-									</li>
-									<li>
-										<a href="#m8">
-											Август
-										</a>
-									</li>
-									<li>
-										<a href="#m9">
-											Сентябрь
-										</a>
-									</li>
-									<li>
-										<a href="#m10">
-											Октябрь
-										</a>
-									</li>
-									<li>
-										<a href="#m11">
-											Ноябрь
-										</a>
-									</li>
-									<li>
-										<a href="#m12">
-											Декабрь
-										</a>
-									</li>
+									<?php endforeach ?>
+									
 								</ul>
-									<div class="tab-month__item" id="m1">
+										<?php $ar = array(); ?>
+								<?php foreach($data['Report'] as $item1): ?>
+									<?php if($this->Time->format($item1['date'], '%Y', 'invalid') == $year): ?>
+									<?php //debug($item1) ?>
+										<?php $month = date("n", strtotime($item1['date'])); ?>
+										<?php foreach($months as $key => $value): ?>
+
+									<div class="tab-month__item <?php if(empty($ar)) echo  'active'; ?>" >
+									<?php
+									//добавляем в массив значения, тем самым делаем его не пустым, чтобы добавить active первому элементу
+									$ar = array('1'=>'1'); 
+									?>
 										<ul class="foto-otchet">
+										<?php foreach($data['Report'] as $report): ?>
+											<?php if($key == date("n", strtotime($report['date'])) && $this->Time->format($report['date'], '%Y', 'invalid') == $year): ?>
 											<li>
 												<div class="foto-otchet-item">
 													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
+														<img src="/img/reports/thumbs/<?=$report['img']?>">
 													</div>
 													<div class="foto-otchet-item__bottom">
 													<div class="foto-otchet-item__date">
-														12.01.2016
+													<?php echo $this->Time->format($report['date'], '%d.%m.%Y', 'invalid'); ?>
 													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
+													<p><?=$report['body']?></p>
 													</div>
 												</div>	
 											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
-											<li>
-												<div class="foto-otchet-item">
-													<div class="foto-otchet-item__img">
-														<img src="/img/foto-otchet.jpg">
-													</div>
-													<div class="foto-otchet-item__bottom">
-													<div class="foto-otchet-item__date">
-														12.01.2016
-													</div>
-													<p>
-														Были проведены подготовительные работы по монтажу....
-													</p>
-													</div>
-												</div>	
-											</li>
+										<?php endif ?>
+										<?php endforeach ?>
 										</ul>
-									</div>
-									<div class="tab-month__item" id="m2">
-									<ul class="foto-otchet">
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-										<li>
-											<div class="foto-otchet-item">
-												<div class="foto-otchet-item__img">
-													<img src="/img/foto-otchet.jpg">
-												</div>
-												<div class="foto-otchet-item__bottom">
-												<div class="foto-otchet-item__date">
-													12.01.2016
-												</div>
-												<p>
-													Были проведены подготовительные работы по монтажу....
-												</p>
-												</div>
-											</div>	
-										</li>
-									</ul>
-									</div>
-									<div class="tab-month__item" id="m3">
-									3
-									</div>
-									<div class="tab-month__item" id="m4">
-									4
-									</div>
-									<div class="tab-month__item" id="m5">
-									5
-									</div>
-									<div class="tab-month__item" id="m6">
-									6
-									</div>
-									<div class="tab-month__item" id="m7">
-									7
-									</div>
-									<div class="tab-month__item" id="m8">
-									8
-									</div>
-									<div class="tab-month__item" id="m9">
-									9
-									</div>
-									<div class="tab-month__item" id="m10">
-									10
-									</div>
-									<div class="tab-month__item" id="m11">
-									11
-									</div>
-									<div class="tab-month__item" id="m12">
-									12
-									</div>
+									</div> 
+									<!-- условие месяца--><?php //endif ?>
+								<!-- Цикл месяца--><?php endforeach ?>
+								<?php endif ?>
+								<?php endforeach ?>
+									
 								</div>
 							</div>
-							<div class="year-tabs-item" id="year2017">
-								asdasdas2
-							</div>
+							<?php endforeach ?>
 						</div>
 
 						<div class="title">
@@ -482,25 +201,12 @@
 			
 		</footer>
 		<script src="/js/jquery.js" type="text/javascript"></script>
-		<script src="/js/jquery.fullPage.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script>
-			$(document).ready(function() {
-				$('#fullpage').fullpage({
-					anchors:['Main','Programm','Pre','Review','Contact'],
-					menu:"#rightMenu",
-					navigation: true,			    	
-				});
-			});
-		</script>
-		<script>
-  	$( function() {
-    	$( "#tab-year" ).tabs();
-    	$( "#tab-month" ).tabs();
-    });
-  </script>
+
+		
+	
 		<script src="/js/jquery.fancybox.pack.js" type="text/javascript"></script>
 		<script src="/js/app.js" type="text/javascript"></script>
+		<script src="/js/tab.js" type="text/javascript"></script>
 
 	</body>
 	</html>
