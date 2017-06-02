@@ -20,25 +20,12 @@ class ArticlesController extends AppController{
 
 	public function admin_index(){
 		$this->Article->locale = array('ru', 'kz');
+		$this->Article->Construction->locale = 'ru';
+		$this->Article->Construction->bindTranslation(array('name' => 'nameTranslation'));
 		$this->Article->bindTranslation(array('title' => 'titleTranslation'));
 		$data = $this->Article->find('all');
 		
-		if($this->request->is('post')){
-			$anons = $this->request->data['Article']['anons'];
-			$news_id = $this->request->data['Article']['news_id'];
-			// debug($news_id);
-			// die;
-
-			// debug($news_id);
-			$setAnons = $this->_anons($news_id, $anons);
-			if($setAnons){
-				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
-				// debug($data);
-				return $this->redirect($this->referer());
-			}else{
-				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
-			}
-		}
+		// debug($data);
 		$this->set(compact('data'));
 	}
 
@@ -120,8 +107,9 @@ class ArticlesController extends AppController{
 			$this->Article->locale = $this->request->query['lang'];
 			$data = $this->request->data = $this->Article->read(null, $id);
 		}
-			
-			$this->set(compact('id', 'data'));
+		$this->Article->Construction->locale = 'ru';
+			$constructions = $this->Article->Construction->find('list');
+			$this->set(compact('id', 'data', 'constructions'));
 
 	}
 

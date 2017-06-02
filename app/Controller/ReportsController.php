@@ -104,9 +104,9 @@ class ReportsController extends AppController{
 			$data = $this->request->data = $this->Report->read(null, $id);
 		}
 			
-				$this->Report->Category->locale = 'ru';
-			$categories = $this->Report->Category->find('list');
-			$this->set(compact('id', 'data', 'categories'));
+				$this->Report->Construction->locale = 'ru';
+			$constructions = $this->Report->Construction->find('list');
+			$this->set(compact('id', 'data', 'constructions'));
 
 	}
 

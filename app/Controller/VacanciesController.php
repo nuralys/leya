@@ -146,4 +146,18 @@ class VacanciesController extends AppController{
 		$this->set(compact('data','title_for_layout'));
 	}
 
+	public function send($id=null){
+		// if(is_null($id) || !(int)$id || !$this->Vacancy->exists($id)){
+		// 	throw new NotFoundException('Такой страницы нет...');
+		// }
+		$this->Vacancy->locale = Configure::read('Config.language');
+		$this->Vacancy->bindTranslation(array('title' => 'titleTranslation', 'body' => 'bodyTranslation'));
+		$data = $this->Vacancy->find('all');
+	// debug($data);
+		// $title_for_layout = $data['Vacancy']['title'];
+		// $meta['keywords'] = $post['Vacancy']['keywords'];
+		// $meta['description'] = $post['Vacancy']['description'];
+		$this->set(compact('data','title_for_layout'));
+	}
+
 }
