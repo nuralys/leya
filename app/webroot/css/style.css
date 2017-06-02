@@ -1230,7 +1230,8 @@ table tr:nth-child(odd) td {
   margin-bottom: 10px;
 }
 .about-img {
-  margin-bottom: 35px;
+    margin-bottom: 35px;
+    overflow: hidden;
 }
 ul {
   margin: 0;
@@ -3331,16 +3332,16 @@ a.ui-button:active .var-link:before,
 .big-plan{
   padding-top:35px;
 }
-.big-plan > div img {
+.big-plan > div  {
     display: block;
     margin: 0 auto;
-    width: 100%;
-    text-align: center;
+        text-align: center;
 }
-.bot-plan{
-  border-top:1px solid #ccc;
-  padding:20px 40px;
-  margin-top:20px;
+.bot-plan {
+    border-top: 1px solid #ccc;
+    padding: 20px 40px;
+    margin-top: 20px;
+    height: auto!important;
 }
 .link{
   display: inline-block;
@@ -3654,4 +3655,24 @@ a.ui-button:active .var-link:before,
       width: 1100px;
       margin: 0 auto;
   }
+  .rukovodstvo-item {
+      padding: 20px;
+  }
+  .big-plan div {
+    height: 300px;
+}
+.big-plan div img {
+    height: 100%;
+}
+.rukovodstvo-item__content {
+    margin-left: 210px;
+}
+.rukovodstvo-item__img {
+    width: 190px;
+    float: left;
+    overflow: hidden;
+}
+.rukovodstvo-item__img img {
+    width: 100%;
+}
 }

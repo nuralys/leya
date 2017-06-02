@@ -1,4 +1,4 @@
 <div class="content-title">
-						Вакансии
+						Контакты
 					</div>	
 <?php echo $page['Page']['body'] ?>

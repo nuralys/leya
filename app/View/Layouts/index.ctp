@@ -178,8 +178,8 @@
 и ценности</div>
                 </a>
                 <a href="/<?=$lang?>page/word-from-principle" class="card-item_mini-card slovo">
-                  <div>слова первого<br>
-руководителя</div>
+                  <div>слова <br>
+руководства</div>
                 </a>
               </div>
             </div>
