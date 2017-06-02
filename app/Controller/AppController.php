@@ -76,6 +76,8 @@ class AppController extends Controller {
                 $this->layout = 'reviews';
             }elseif($this->params['controller']=='presentations' && $this->params['action']=='index'){
                 $this->layout = 'reviews';
+            }elseif($this->params['controller']=='pages' && $this->params['action']=='contacts'){
+                $this->layout = 'reviews';
             }elseif($this->params['controller']=='reviews' && $this->params['action']=='index'){
                 $this->layout = 'reviews';
             }elseif($this->params['controller']=='constructions' && $this->params['action']=='index'){
