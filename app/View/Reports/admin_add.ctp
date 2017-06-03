@@ -18,6 +18,7 @@ echo $this->Form->create('Report', array('type' => 'file'));
 echo $this->Form->input('date', array('label' => 'Дата:'));
 echo $this->Form->input('body', array('label' => 'Текст:'));
 echo $this->Form->input('img', array('label' => 'Изображение:', 'type' => 'file'));
+
 echo $this->Form->end('Создать');
 ?>
 </div>

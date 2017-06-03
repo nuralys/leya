@@ -28,6 +28,12 @@ echo $this->Form->input('technologies', array('label' => 'Технологии:'
 <?php if(isset($this->request->query['lang']) && $this->request->query['lang'] == 'ru'): ?>
 <?php 
 echo $this->Form->input('img', array('label' => 'Картинка:', 'type' => 'file'));
+echo $this->Form->input('address', array('label' => 'Адрес:'));
+echo $this->Form->input('klass', array('label' => 'Класс:'));
+echo $this->Form->input('naruzhnaya_otdelka', array('label' => 'Наружная отделка:'));
+echo $this->Form->input('karkas', array('label' => 'Каркас:'));
+echo $this->Form->input('okna', array('label' => 'Окна:'));
+echo $this->Form->input('inzhenernye_seti', array('label' => 'Инженерные сети:'));
 ?>
 <?php endif ?>
 <div class="edit_bot">
