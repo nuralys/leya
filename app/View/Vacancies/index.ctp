@@ -9,10 +9,10 @@
 					№	
 				</th>
 				<th>
-					Наименование отделов
+					<?=__('Наименование отдела')?>
 				</th>
 				<th>
-					Наименование должности
+					<?=__('Наименование должности')?>
 				</th>
 				<th>
 				</th>
@@ -30,7 +30,7 @@
 				<a href="/<?=$lang?>vacancies/view/<?=$item['Vacancy']['id'] ?>" class="add-resume"><?=$item['Vacancy']['position'] ?></a>
 				</td>
 				<td>
-				<a href="" class="add-resume">Подать резюме</a>
+				<a href="/<?=$lang?>vacancies/send/<?=$item['Vacancy']['id'] ?>" class="add-resume"><?=__('Подать резюме')?></a>
 				</td>
 			</tr>
 			<?php $count = $count+1; ?>

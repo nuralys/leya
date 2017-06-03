@@ -147,6 +147,22 @@ class VacanciesController extends AppController{
 	}
 
 	public function send($id=null){
+		$id = (int)$id;
+		if($this->request->is('post')){
+			$this->Request->create();
+			$data = $this->request->data['Request'];
+
+			debug($data);
+			die;
+			if($this->Request->save($data)){
+				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				// debug($data);
+				return $this->redirect($this->referer());
+			}else{
+				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+			}
+		}
+
 		// if(is_null($id) || !(int)$id || !$this->Vacancy->exists($id)){
 		// 	throw new NotFoundException('Такой страницы нет...');
 		// }
@@ -157,7 +173,7 @@ class VacanciesController extends AppController{
 		// $title_for_layout = $data['Vacancy']['title'];
 		// $meta['keywords'] = $post['Vacancy']['keywords'];
 		// $meta['description'] = $post['Vacancy']['description'];
-		$this->set(compact('data','title_for_layout'));
+		$this->set(compact('data','title_for_layout','id'));
 	}
 
 }

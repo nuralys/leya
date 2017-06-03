@@ -1,21 +1,21 @@
 <div class="vakanci-form-content">
 	<a class="back-link" href="/<?=$lang?>vacancies">
-		Возврат к списку
+		<?=__('Возврат к списку')?>
 	</a>
-	<div class="min-title">
+<!-- 	<div class="min-title">
 		Слесарь по ремонту подвижного состава
-	</div>
+	</div> -->
 </div>
-	<form>
+	<form action="/resumes/send" method="POST" enctype="multipart/form-data">
 	<div class="form-item">
 		<label for="">
-		Вакансия</label>
+		<?=__('Вакансия')?></label>
 		<select name="data[Resume][vacancy]">
 			<option>
-				Выберите вакансию
+				<?=__('Выберите вакансию')?>
 			</option>
 			<?php foreach($data as $item): ?>
-				<option value="<?=$item['Vacancy']['id']?>">
+				<option value="<?= $item['Vacancy']['title'] ." - ". $item['Vacancy']['position']; ?>" <?php if($item['Vacancy']['id'] == $id){echo 'selected';} ?>>
 					<?= $item['Vacancy']['title'] ." - ". $item['Vacancy']['position']; ?>
 				</option>
 			<?php endforeach ?>
@@ -24,12 +24,12 @@
 	</div>	
 	<div class="form-item">
 		<label for="">
-		ФИО</label>
+		<?=__('ФИО')?></label>
 		<input type="text" placeholder="" name="data[Resume][fio]">
 	</div>
 	<div class="form-item">
 		<label for="">
-		Телефон</label>
+		<?=__('Телефон')?></label>
 		<input type="text" placeholder="" name="data[Resume][phone]">
 	</div>
 	<div class="form-item">
@@ -39,10 +39,10 @@
 	</div>
 	<div class="form-item">
 		<label for="">
-		Прикрепит файл</label>
+		<?=__('Прикрепите резюме')?></label>
 		<input type="file" placeholder="" name="data[Resume][file]">
 	</div>
 <div class="content-bottom">
-	<button class="button-resume" type="submit">Отправить резюме</button>
+	<button class="button-resume" type="submit"><?=__('Отправить резюме')?></button>
 	</div>
 	</form>
