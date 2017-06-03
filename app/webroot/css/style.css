@@ -1042,11 +1042,11 @@ table tr:nth-child(odd) td {
   margin-bottom: 40px;
 }
 .reviews-item {
-  padding: 15px;
-  font-size: 16px;
-  background-color: #fff;
-  overflow: hidden;
-  margin-right: 40px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-right: 40px;
 }
 .reviews-item__top {
     padding: 25px 30px 25px 30px;
@@ -3039,9 +3039,12 @@ display: inline-block;
   text-align: center;
   color: #474747!important;
 }
+
 .slider-plan-item__img {
-  height: 135px;
-  vertical-align: middle;
+    height: 126px;
+    vertical-align: middle;
+    overflow: hidden;
+    margin-bottom: 8px;
 }
 .slider-plan-item__img img {
   width: 100%;
@@ -3665,22 +3668,25 @@ display: inline-block;
   .container .cr {
       width: 1200px;
   }
-  .reviews-item__top {
-      padding: 20px 20px 20px 20px;
-      background-color: #2f603b;
-      color: #fff;
-      position: relative;
-      margin-bottom: 32px;
-  }
-  .reviews-item__top:after {
-      content: '';
-      width: 30px;
-      height: 40px;
-      display: block;
-      bottom: -40px;
-      background-size: contain;
-  }
-     
+.reviews-item__top {
+    padding: 15px;
+    background-color: #2f603b;
+    color: #fff;
+    position: relative;
+    margin-bottom: 22px;
+}
+.reviews-item__top:after {
+    content: '';
+    width: 22px;
+    height: 30px;
+    display: block;
+    bottom: -30px;
+    background-size: contain;
+}
+     .reviews-item__bottom {
+    padding: 0 15px 15px 15px;
+    overflow: hidden;
+}
   .reviews-name {
       font-size: 16px;
   }
@@ -3713,6 +3719,10 @@ display: inline-block;
     width: 190px;
     float: left;
     overflow: hidden;
+}
+.slider-plan-item__img {
+  height: 135px;
+  vertical-align: middle;
 }
 .rukovodstvo-item__img img {
     width: 100%;
